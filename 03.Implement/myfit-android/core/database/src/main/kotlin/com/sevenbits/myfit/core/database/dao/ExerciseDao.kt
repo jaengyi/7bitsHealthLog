@@ -3,6 +3,8 @@ package com.sevenbits.myfit.core.database.dao
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
+import com.sevenbits.myfit.core.database.entity.BodyPartEntity
+import com.sevenbits.myfit.core.database.entity.ExerciseBodyPartEntity
 import com.sevenbits.myfit.core.database.entity.ExerciseEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -14,6 +16,31 @@ internal interface ExerciseDao {
 
     @Upsert
     suspend fun upsertAll(exercises: List<ExerciseEntity>)
+
+    // ── 시드 적재 (FN-EXR-001/002) ────────────────────────
+
+    @Upsert
+    suspend fun upsertBodyParts(bodyParts: List<BodyPartEntity>)
+
+    @Upsert
+    suspend fun upsertExerciseBodyParts(mappings: List<ExerciseBodyPartEntity>)
+
+    @Query("SELECT * FROM body_part ORDER BY sort_order")
+    fun observeBodyParts(): Flow<List<BodyPartEntity>>
+
+    @Query("SELECT COUNT(*) FROM exercise_body_part")
+    suspend fun countBodyPartMappings(): Int
+
+    /** 특정 부위를 주동근으로 하는 종목 (필터·리포트 조인) */
+    @Query(
+        """
+        SELECT e.* FROM exercise e
+        JOIN exercise_body_part ebp ON e.id = ebp.exercise_id
+        WHERE ebp.body_part_code = :bodyPartCode AND ebp.role = 'PRIMARY' AND e.is_active = 1
+        ORDER BY e.name
+        """,
+    )
+    suspend fun findByPrimaryBodyPart(bodyPartCode: String): List<ExerciseEntity>
 
     @Query("SELECT * FROM exercise WHERE id = :id")
     suspend fun findById(id: String): ExerciseEntity?

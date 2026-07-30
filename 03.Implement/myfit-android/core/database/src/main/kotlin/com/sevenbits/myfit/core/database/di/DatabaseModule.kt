@@ -8,6 +8,7 @@ import com.sevenbits.myfit.core.database.dao.ExerciseNoteDao
 import com.sevenbits.myfit.core.database.dao.ExerciseReferenceDao
 import com.sevenbits.myfit.core.database.dao.RoutineDao
 import com.sevenbits.myfit.core.database.dao.TombstoneDao
+import com.sevenbits.myfit.core.database.dao.UserDao
 import com.sevenbits.myfit.core.database.dao.WorkoutDao
 import dagger.Module
 import dagger.Provides
@@ -47,4 +48,7 @@ internal object DatabaseModule {
 
     @Provides
     fun provideTombstoneDao(database: MyFitDatabase): TombstoneDao = database.tombstoneDao()
+
+    @Provides
+    fun provideUserDao(database: MyFitDatabase): UserDao = database.userDao()
 }

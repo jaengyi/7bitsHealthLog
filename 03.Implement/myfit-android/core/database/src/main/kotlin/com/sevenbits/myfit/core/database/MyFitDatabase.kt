@@ -7,6 +7,7 @@ import com.sevenbits.myfit.core.database.dao.ExerciseNoteDao
 import com.sevenbits.myfit.core.database.dao.ExerciseReferenceDao
 import com.sevenbits.myfit.core.database.dao.RoutineDao
 import com.sevenbits.myfit.core.database.dao.TombstoneDao
+import com.sevenbits.myfit.core.database.dao.UserDao
 import com.sevenbits.myfit.core.database.dao.WorkoutDao
 import com.sevenbits.myfit.core.database.entity.BodyPartEntity
 import com.sevenbits.myfit.core.database.entity.ExerciseBodyPartEntity
@@ -67,6 +68,7 @@ internal abstract class MyFitDatabase : RoomDatabase() {
     abstract fun workoutDao(): WorkoutDao
     abstract fun routineDao(): RoutineDao
     abstract fun tombstoneDao(): TombstoneDao
+    abstract fun userDao(): UserDao
 
     companion object {
         const val VERSION = 1

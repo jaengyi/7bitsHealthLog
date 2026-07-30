@@ -1,0 +1,13 @@
+[
+  { "code": "CHEST",     "name": "가슴",   "upperGroup": "UPPER", "sortOrder": 1 },
+  { "code": "BACK",      "name": "등",     "upperGroup": "UPPER", "sortOrder": 2 },
+  { "code": "SHOULDER",  "name": "어깨",   "upperGroup": "UPPER", "sortOrder": 3 },
+  { "code": "ARM",       "name": "팔",     "upperGroup": "UPPER", "sortOrder": 4 },
+  { "code": "FOREARM",   "name": "전완",   "upperGroup": "UPPER", "sortOrder": 5 },
+  { "code": "ABS",       "name": "복근",   "upperGroup": "CORE",  "sortOrder": 6 },
+  { "code": "LOWER_BACK","name": "허리",   "upperGroup": "CORE",  "sortOrder": 7 },
+  { "code": "GLUTE",     "name": "둔근",   "upperGroup": "LOWER", "sortOrder": 8 },
+  { "code": "LEG",       "name": "하체",   "upperGroup": "LOWER", "sortOrder": 9 },
+  { "code": "CALF",      "name": "종아리", "upperGroup": "LOWER", "sortOrder": 10 },
+  { "code": "FULL_BODY", "name": "전신",   "upperGroup": "FULL",  "sortOrder": 11 }
+]

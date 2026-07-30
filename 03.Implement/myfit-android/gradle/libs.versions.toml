@@ -42,6 +42,8 @@ espresso                 = "3.7.0"
 mockk                    = "1.14.11"
 turbine                  = "1.2.1"
 truth                    = "1.4.5"
+robolectric              = "4.16.1"
+androidxTestCore         = "1.6.1"
 # ── 품질 ───────────────────────────────────────────────
 kover                    = "0.9.9"
 
@@ -111,6 +113,8 @@ mockk                        = { module = "io.mockk:mockk", version.ref = "mockk
 mockk-android                = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 turbine                      = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 truth                        = { module = "com.google.truth:truth", version.ref = "truth" }
+robolectric                  = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+androidx-test-core           = { module = "androidx.test:core", version.ref = "androidxTestCore" }
 
 [plugins]
 android-application    = { id = "com.android.application", version.ref = "agp" }
