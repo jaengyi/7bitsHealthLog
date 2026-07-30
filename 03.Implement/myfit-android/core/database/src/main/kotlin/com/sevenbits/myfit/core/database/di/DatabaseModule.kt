@@ -4,6 +4,11 @@ import android.content.Context
 import androidx.room.Room
 import com.sevenbits.myfit.core.database.MyFitDatabase
 import com.sevenbits.myfit.core.database.dao.ExerciseDao
+import com.sevenbits.myfit.core.database.dao.ExerciseNoteDao
+import com.sevenbits.myfit.core.database.dao.ExerciseReferenceDao
+import com.sevenbits.myfit.core.database.dao.RoutineDao
+import com.sevenbits.myfit.core.database.dao.TombstoneDao
+import com.sevenbits.myfit.core.database.dao.WorkoutDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,4 +31,20 @@ internal object DatabaseModule {
 
     @Provides
     fun provideExerciseDao(database: MyFitDatabase): ExerciseDao = database.exerciseDao()
+
+    @Provides
+    fun provideExerciseNoteDao(database: MyFitDatabase): ExerciseNoteDao = database.exerciseNoteDao()
+
+    @Provides
+    fun provideExerciseReferenceDao(database: MyFitDatabase): ExerciseReferenceDao =
+        database.exerciseReferenceDao()
+
+    @Provides
+    fun provideWorkoutDao(database: MyFitDatabase): WorkoutDao = database.workoutDao()
+
+    @Provides
+    fun provideRoutineDao(database: MyFitDatabase): RoutineDao = database.routineDao()
+
+    @Provides
+    fun provideTombstoneDao(database: MyFitDatabase): TombstoneDao = database.tombstoneDao()
 }
