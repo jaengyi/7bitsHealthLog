@@ -116,7 +116,9 @@ class ExercisePickerViewModel @Inject constructor(
             is ExercisePickerAction.OnPreviewOpen -> openPreview(action.exerciseId)
 
             // 네비게이션은 Route 계층에서 가로챈다. ViewModel 은 상태만 정리한다.
-            is ExercisePickerAction.OnOpenDetail ->
+            is ExercisePickerAction.OnOpenDetail,
+            ExercisePickerAction.OnCreateExercise,
+            ->
                 _uiState.update { it.copy(preview = null) }
 
             ExercisePickerAction.OnPreviewClose ->

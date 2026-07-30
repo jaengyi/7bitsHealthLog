@@ -62,6 +62,8 @@ sealed interface ExercisePickerAction {
     data class OnPreviewOpen(val exerciseId: String) : ExercisePickerAction
     /** 시트에서 전체 화면(SCR-EXR-002)으로 확장 */
     data class OnOpenDetail(val exerciseId: String) : ExercisePickerAction
+    /** 기본 라이브러리에 없는 종목을 직접 등록 (FN-EXR-005) */
+    data object OnCreateExercise : ExercisePickerAction
     data object OnPreviewClose : ExercisePickerAction
     data object OnConfirmSelection : ExercisePickerAction
     data object OnClearFilters : ExercisePickerAction

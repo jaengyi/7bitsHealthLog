@@ -26,6 +26,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -51,15 +52,27 @@ fun ExercisePickerScreen(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxSize()) {
-        OutlinedTextField(
-            value = uiState.query,
-            onValueChange = { onAction(ExercisePickerAction.OnQueryChange(it)) },
-            placeholder = { Text("종목명 또는 초성 검색") },
-            singleLine = true,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(Dimens.ScreenPadding),
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            OutlinedTextField(
+                value = uiState.query,
+                onValueChange = { onAction(ExercisePickerAction.OnQueryChange(it)) },
+                placeholder = { Text("종목명 또는 초성 검색") },
+                singleLine = true,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(Dimens.ScreenPadding),
+            )
+            // 기본 라이브러리에 없는 종목 직접 등록 (FN-EXR-005)
+            TextButton(
+                onClick = { onAction(ExercisePickerAction.OnCreateExercise) },
+                modifier = Modifier.padding(end = Dimens.SpaceSm),
+            ) {
+                Text("＋ 등록")
+            }
+        }
 
         FilterChipRow(
             uiState = uiState,
