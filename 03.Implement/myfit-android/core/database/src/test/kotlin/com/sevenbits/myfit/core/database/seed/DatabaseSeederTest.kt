@@ -125,4 +125,19 @@ class DatabaseSeederTest {
         // Phase 1 목표는 300종 이상이며 현재는 헬스장 실사용 종목을 선별한 중간 단계다.
         assertThat(count).isAtLeast(200)
     }
+
+    @Test
+    fun `모든 종목의 자세 가이드 이미지가 실제로 존재한다`() = runTest {
+        seeder.seedIfEmpty(1000L)
+        val context = ApplicationProvider.getApplicationContext<android.content.Context>()
+        val all = db.exerciseDao().observeActive().first()
+
+        // 경로만 있고 파일이 없으면 런타임에 빈 화면이 된다. 시드 단계에서 잡는다. (FN-EXR-016)
+        val broken = all.mapNotNull { it.guideImageAsset }.filter { path ->
+            runCatching { context.assets.open(path).close() }.isFailure
+        }
+
+        assertThat(all.count { it.guideImageAsset != null }).isEqualTo(all.size)
+        assertThat(broken).isEmpty()
+    }
 }
