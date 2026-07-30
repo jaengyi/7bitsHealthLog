@@ -90,6 +90,15 @@ fun ExercisePickerScreen(
             }
         }
 
+        // 추가 전 미리보기 시트 (FN-EXR-018)
+        uiState.preview?.let { preview ->
+            ExerciseGuideSheet(
+                preview = preview,
+                isSelected = preview.exercise.id in uiState.selectedIds,
+                onAction = onAction,
+            )
+        }
+
         // 하단 고정 — 한손 조작 영역 (U1)
         Surface(tonalElevation = 3.dp) {
             Button(

@@ -60,6 +60,8 @@ sealed interface ExercisePickerAction {
     data class OnSelectionToggle(val exerciseId: String) : ExercisePickerAction
     data class OnFavoriteToggle(val exerciseId: String) : ExercisePickerAction
     data class OnPreviewOpen(val exerciseId: String) : ExercisePickerAction
+    /** 시트에서 전체 화면(SCR-EXR-002)으로 확장 */
+    data class OnOpenDetail(val exerciseId: String) : ExercisePickerAction
     data object OnPreviewClose : ExercisePickerAction
     data object OnConfirmSelection : ExercisePickerAction
     data object OnClearFilters : ExercisePickerAction

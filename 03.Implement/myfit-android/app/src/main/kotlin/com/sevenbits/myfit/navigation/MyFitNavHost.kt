@@ -56,7 +56,7 @@ fun MyFitNavHost(
         modifier = modifier,
     ) {
         workoutScreen()
-        exerciseScreen()
+        exerciseScreen(navController)
         routineScreen()
         calendarScreen()
         settingsScreen()
