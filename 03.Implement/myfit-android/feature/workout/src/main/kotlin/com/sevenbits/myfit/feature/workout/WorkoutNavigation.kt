@@ -1,18 +1,102 @@
 package com.sevenbits.myfit.feature.workout
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.sevenbits.myfit.feature.workout.log.WorkoutLogEvent
+import com.sevenbits.myfit.feature.workout.log.WorkoutLogScreen
+import com.sevenbits.myfit.feature.workout.log.WorkoutLogViewModel
+import com.sevenbits.myfit.feature.workout.setinput.SetInputEvent
+import com.sevenbits.myfit.feature.workout.setinput.SetInputScreen
+import com.sevenbits.myfit.feature.workout.setinput.SetInputViewModel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.Serializable
+import java.time.LocalDate
 
 /**
- * 운동일지 네비게이션 그래프.
+ * 운동기록 네비게이션 그래프.
  *
- * 각 feature 가 자신의 NavGraphBuilder 확장을 노출하고 :app 의 NavHost 가 조립한다.
- * 이 방식으로 feature 간 직접 참조 없이(R-3) 화면 이동이 가능하다.
+ * feature 간 직접 참조 없이(R-3) :app 의 NavHost 가 조립한다.
+ * 종목 선택 화면으로의 이동은 콜백으로 위임한다.
  */
 @Serializable
-data object WorkoutRoute
+data class WorkoutRoute(val date: String = "")
 
-fun NavGraphBuilder.workoutScreen() {
-    composable<WorkoutRoute> { WorkoutScreen() }
+/** SCR-WRK-002 세트 입력 */
+@Serializable
+data class SetInputRoute(val logExerciseId: String)
+
+fun NavGraphBuilder.workoutScreen(
+    navController: NavController,
+    onAddExercise: (logId: String) -> Unit = {},
+) {
+    composable<WorkoutRoute> {
+        WorkoutLogRouteContent(
+            onOpenSetInput = { navController.navigate(SetInputRoute(it)) },
+            onAddExercise = onAddExercise,
+            onBack = { navController.popBackStack() },
+        )
+    }
+    composable<SetInputRoute> {
+        SetInputRouteContent(onBack = { navController.popBackStack() })
+    }
+}
+
+@Composable
+private fun WorkoutLogRouteContent(
+    onOpenSetInput: (String) -> Unit,
+    onAddExercise: (String) -> Unit,
+    onBack: () -> Unit,
+    viewModel: WorkoutLogViewModel = hiltViewModel(),
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    ObserveEvents(viewModel.events) { event ->
+        when (event) {
+            is WorkoutLogEvent.NavigateToSetInput -> onOpenSetInput(event.logExerciseId)
+            is WorkoutLogEvent.NavigateToExercisePicker -> onAddExercise(event.logId)
+            // 운동 수행 화면(SCR-WRK-003)은 후속 구현
+            is WorkoutLogEvent.NavigateToSession -> Unit
+            WorkoutLogEvent.NavigateBack -> onBack()
+        }
+    }
+
+    WorkoutLogScreen(uiState = uiState, onAction = viewModel::onAction)
+}
+
+@Composable
+private fun SetInputRouteContent(
+    onBack: () -> Unit,
+    viewModel: SetInputViewModel = hiltViewModel(),
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    ObserveEvents(viewModel.events) { event ->
+        when (event) {
+            SetInputEvent.NavigateBack -> onBack()
+            // 휴식 타이머 서비스는 후속 구현 (FN-TOL-001)
+            is SetInputEvent.StartRestTimer -> Unit
+        }
+    }
+
+    SetInputScreen(uiState = uiState, onAction = viewModel::onAction)
+}
+
+/** 1회성 이벤트 수집 — 화면이 STARTED 일 때만 처리한다 */
+@Composable
+private fun <T> ObserveEvents(events: Flow<T>, onEvent: (T) -> Unit) {
+    val lifecycleOwner = LocalLifecycleOwner.current
+    LaunchedEffect(events, lifecycleOwner) {
+        lifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+            events.collect(onEvent)
+        }
+    }
 }

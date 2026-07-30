@@ -63,9 +63,31 @@ internal interface WorkoutDao {
     )
     suspend fun findLog(userId: String, date: String, sessionNo: Int): WorkoutLogEntity?
 
+    @Query("SELECT * FROM workout_log WHERE id = :logId")
+    suspend fun findLogById(logId: String): WorkoutLogEntity?
+
     /** 진행 중 세션 복원 (FN-WRK-023) */
     @Query("SELECT * FROM workout_log WHERE user_id = :userId AND status = 'IN_PROGRESS' LIMIT 1")
     suspend fun findInProgressLog(userId: String): WorkoutLogEntity?
+
+    @Delete
+    suspend fun deleteLogExercise(logExercise: WorkoutLogExerciseEntity)
+
+    @Query("SELECT * FROM workout_log_exercise WHERE id = :id")
+    suspend fun findLogExerciseById(id: String): WorkoutLogExerciseEntity?
+
+    @Query("SELECT COALESCE(MAX(order_no), 0) FROM workout_log_exercise WHERE workout_log_id = :logId")
+    suspend fun maxOrderNo(logId: String): Int
+
+    /** 드래그 정렬 (FN-WRK-018) */
+    @Query(
+        """
+        UPDATE workout_log_exercise
+        SET order_no = :orderNo, updated_at = :now, is_dirty = 1
+        WHERE id = :id
+        """,
+    )
+    suspend fun updateExerciseOrder(id: String, orderNo: Int, now: Long)
 
     /** 같은 일자의 회차 목록 — 최대 3회차 제한 검증에 사용 (FN-WRK-005) */
     @Query("SELECT COUNT(*) FROM workout_log WHERE user_id = :userId AND workout_date = :date")
@@ -84,6 +106,32 @@ internal interface WorkoutDao {
 
     @Query("SELECT * FROM workout_set WHERE log_exercise_id = :logExerciseId ORDER BY set_no")
     fun observeSets(logExerciseId: String): Flow<List<WorkoutSetEntity>>
+
+    @Query("SELECT * FROM workout_set WHERE log_exercise_id = :logExerciseId ORDER BY set_no")
+    suspend fun findSetsOf(logExerciseId: String): List<WorkoutSetEntity>
+
+    @Query("SELECT * FROM workout_set WHERE id = :setId")
+    suspend fun findSetById(setId: String): WorkoutSetEntity?
+
+    /** 진행률 표시 (FN-WRK-021) */
+    @Query(
+        """
+        SELECT COUNT(*) FROM workout_set ws
+        JOIN workout_log_exercise wle ON ws.log_exercise_id = wle.id
+        WHERE wle.workout_log_id = :logId AND ws.is_completed = 1
+        """,
+    )
+    suspend fun countCompletedSets(logId: String): Int
+
+    /** 웜업을 제외한 실작업 세트 수 */
+    @Query(
+        """
+        SELECT COUNT(*) FROM workout_set ws
+        JOIN workout_log_exercise wle ON ws.log_exercise_id = wle.id
+        WHERE wle.workout_log_id = :logId AND ws.set_type != 'WARMUP'
+        """,
+    )
+    suspend fun countWorkingSets(logId: String): Int
 
     /** 세트 삭제 후 순번 재정렬 (FN-WRK-016) */
     @Query(
