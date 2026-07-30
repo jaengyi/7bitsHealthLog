@@ -26,6 +26,9 @@ class JvmLibraryConventionPlugin : Plugin<Project> {
 
         dependencies {
             add("implementation", libs.findLibrary("kotlinx-coroutines-core").get())
+            // @Inject 애너테이션. Hilt 가 있는 모듈에서 이 클래스를 주입 대상으로 인식하려면
+            // 컴파일 클래스패스에 노출되어야 하므로 api 로 둔다.
+            add("api", libs.findLibrary("javax-inject").get())
             add("testImplementation", libs.findLibrary("junit").get())
             add("testImplementation", libs.findLibrary("truth").get())
             add("testImplementation", libs.findLibrary("mockk").get())

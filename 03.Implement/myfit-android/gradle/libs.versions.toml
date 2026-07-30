@@ -35,6 +35,7 @@ coil                     = "2.7.0"
 vico                     = "3.2.3"
 timber                   = "5.0.1"
 desugarJdkLibs           = "2.1.5"
+javaxInject              = "1"
 # ── 테스트 ─────────────────────────────────────────────
 junit                    = "4.13.2"
 androidxJunit            = "1.3.0"
@@ -104,6 +105,7 @@ coil-compose                 = { module = "io.coil-kt:coil-compose", version.ref
 vico-compose-m3              = { module = "com.patrykandpatrick.vico:compose-m3", version.ref = "vico" }
 timber                       = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 desugar-jdk-libs             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugarJdkLibs" }
+javax-inject                 = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
 
 # ── 테스트 ─────────────────────────────────────────────
 junit                        = { module = "junit:junit", version.ref = "junit" }
