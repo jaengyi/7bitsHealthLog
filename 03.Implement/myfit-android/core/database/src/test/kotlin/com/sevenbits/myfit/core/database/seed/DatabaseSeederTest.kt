@@ -93,4 +93,36 @@ class DatabaseSeederTest {
             "WEIGHT_REPS", "REPS_ONLY", "TIME", "DISTANCE_TIME", "WEIGHT_TIME",
         )
     }
+
+    @Test
+    fun `주요 부위와 장비가 모두 시드에 포함된다`() = runTest {
+        seeder.seedIfEmpty(1000L)
+        val all = db.exerciseDao().observeActive().first()
+
+        assertThat(all.map { it.equipment }.toSet())
+            .containsAtLeast("BARBELL", "DUMBBELL", "MACHINE", "CABLE", "BODYWEIGHT")
+
+        // 부위별로 최소 1종 이상 존재해야 루틴 구성이 가능하다
+        listOf("CHEST", "BACK", "SHOULDER", "ARM", "LEG", "ABS", "GLUTE", "CALF").forEach { part ->
+            assertThat(db.exerciseDao().findByPrimaryBodyPart(part)).isNotEmpty()
+        }
+    }
+
+    @Test
+    fun `밸런스 분석을 위한 동작 패턴이 부여된다`() = runTest {
+        seeder.seedIfEmpty(1000L)
+        val patterns = db.exerciseDao().observeActive().first()
+            .mapNotNull { it.movementPattern }.toSet()
+
+        // 밀기·당기기 비율과 상하체 비율 분석의 집계 축 (FN-RPT-014/015)
+        assertThat(patterns).containsAtLeast("PUSH", "PULL", "SQUAT", "HINGE")
+    }
+
+    @Test
+    fun `시드 규모가 루틴 구성에 충분하다`() = runTest {
+        val count = seeder.seedIfEmpty(1000L)
+
+        // Phase 1 목표는 300종 이상이며 현재는 헬스장 실사용 종목을 선별한 중간 단계다.
+        assertThat(count).isAtLeast(200)
+    }
 }

@@ -1,44 +1,3698 @@
 [
-  { "id": "ex-0001", "name": "바벨 벤치프레스", "nameEn": "Barbell Bench Press", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "PUSH", "defaultRestSec": 150, "primary": ["CHEST"], "secondary": ["SHOULDER", "ARM"], "description": "견갑을 후인·하강하고 가슴을 연 상태로 벤치에 눕는다. 바를 어깨너비보다 약간 넓게 잡고 명치 아래로 내렸다가 밀어 올린다.", "caution": "손목이 꺾이지 않도록 유지하고, 바운싱으로 반동을 주지 않는다." },
-  { "id": "ex-0002", "name": "인클라인 벤치프레스", "nameEn": "Incline Bench Press", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "PUSH", "defaultRestSec": 150, "primary": ["CHEST"], "secondary": ["SHOULDER"], "description": "벤치 각도를 30~45도로 세우고 상부 가슴을 겨냥해 수행한다.", "caution": "각도를 60도 이상 세우면 어깨 개입이 과도해진다." },
-  { "id": "ex-0003", "name": "덤벨 벤치프레스", "nameEn": "Dumbbell Bench Press", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "COMPOUND", "movementPattern": "PUSH", "defaultRestSec": 120, "primary": ["CHEST"], "secondary": ["SHOULDER", "ARM"], "description": "덤벨을 양손에 들고 가슴 옆에서 위로 밀어 올린다. 바벨보다 가동범위가 넓다.", "caution": "마지막 세트에서 덤벨을 무리하게 들어 올리다 어깨를 다치지 않도록 한다." },
-  { "id": "ex-0004", "name": "덤벨 플라이", "nameEn": "Dumbbell Fly", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "ISOLATION", "movementPattern": "PUSH", "defaultRestSec": 90, "primary": ["CHEST"], "secondary": [], "description": "팔꿈치를 약간 굽힌 상태로 고정하고 가슴을 열었다가 모은다.", "caution": "팔꿈치 각도를 계속 바꾸면 프레스 동작이 되어 자극이 분산된다." },
-  { "id": "ex-0005", "name": "체스트 프레스 머신", "nameEn": "Chest Press Machine", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "MACHINE", "movementType": "COMPOUND", "movementPattern": "PUSH", "defaultRestSec": 90, "primary": ["CHEST"], "secondary": ["ARM"], "description": "시트 높이를 조절해 손잡이가 가슴 중앙에 오게 맞추고 밀어낸다.", "caution": "어깨가 말려 올라가지 않게 견갑을 고정한다." },
-  { "id": "ex-0006", "name": "케이블 크로스오버", "nameEn": "Cable Crossover", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "CABLE", "movementType": "ISOLATION", "movementPattern": "PUSH", "defaultRestSec": 75, "primary": ["CHEST"], "secondary": [], "description": "케이블을 높게 두고 아래·안쪽으로 모아 가슴 안쪽을 수축시킨다.", "caution": "상체를 과도하게 숙이면 어깨 앞쪽에 부하가 몰린다." },
-  { "id": "ex-0007", "name": "딥스", "nameEn": "Dips", "recordType": "REPS_ONLY", "exerciseType": "BODYWEIGHT", "equipment": "BODYWEIGHT", "movementType": "COMPOUND", "movementPattern": "PUSH", "defaultRestSec": 120, "primary": ["CHEST"], "secondary": ["ARM", "SHOULDER"], "description": "평행봉에서 상체를 앞으로 기울여 내려갔다가 밀어 올린다.", "caution": "어깨가 팔꿈치보다 아래로 과하게 내려가면 관절에 무리가 간다." },
-
-  { "id": "ex-0010", "name": "데드리프트", "nameEn": "Deadlift", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "HINGE", "defaultRestSec": 180, "primary": ["BACK", "LEG"], "secondary": ["GLUTE", "LOWER_BACK", "FOREARM"], "description": "바를 정강이 가까이 두고 고관절을 접어 잡은 뒤, 상체 각도를 유지하며 밀어 일어선다.", "caution": "허리가 말리면 즉시 중단한다. 중량보다 자세가 우선이다." },
-  { "id": "ex-0011", "name": "바벨 로우", "nameEn": "Barbell Row", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "PULL", "defaultRestSec": 120, "primary": ["BACK"], "secondary": ["ARM", "LOWER_BACK"], "description": "상체를 45도 내외로 숙이고 배꼽 방향으로 바를 당긴다.", "caution": "반동으로 들어 올리면 허리 부하가 커진다." },
-  { "id": "ex-0012", "name": "랫풀다운", "nameEn": "Lat Pulldown", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "CABLE", "movementType": "COMPOUND", "movementPattern": "PULL", "defaultRestSec": 90, "primary": ["BACK"], "secondary": ["ARM"], "description": "가슴을 열고 견갑을 아래로 내리면서 바를 쇄골 방향으로 당긴다.", "caution": "목 뒤로 당기는 동작은 어깨에 부담이 크므로 권장하지 않는다." },
-  { "id": "ex-0013", "name": "풀업", "nameEn": "Pull Up", "recordType": "REPS_ONLY", "exerciseType": "BODYWEIGHT", "equipment": "BODYWEIGHT", "movementType": "COMPOUND", "movementPattern": "PULL", "defaultRestSec": 120, "primary": ["BACK"], "secondary": ["ARM"], "description": "오버그립으로 매달려 턱이 바 위로 올라오도록 당긴다.", "caution": "어깨가 완전히 이완된 상태에서 반동으로 시작하지 않는다." },
-  { "id": "ex-0014", "name": "시티드 로우", "nameEn": "Seated Row", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "CABLE", "movementType": "COMPOUND", "movementPattern": "PULL", "defaultRestSec": 90, "primary": ["BACK"], "secondary": ["ARM"], "description": "상체를 세운 상태로 견갑을 모으며 복부 쪽으로 당긴다.", "caution": "상체를 뒤로 눕히며 당기면 허리 부하가 커진다." },
-  { "id": "ex-0015", "name": "덤벨 원암 로우", "nameEn": "One-Arm Dumbbell Row", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "COMPOUND", "movementPattern": "PULL", "isUnilateral": true, "defaultRestSec": 90, "primary": ["BACK"], "secondary": ["ARM"], "description": "벤치에 한 손과 무릎을 대고 반대쪽 덤벨을 허리 방향으로 당긴다.", "caution": "몸통이 회전하며 반동을 쓰지 않도록 고정한다." },
-
-  { "id": "ex-0020", "name": "오버헤드 프레스", "nameEn": "Overhead Press", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "PUSH", "defaultRestSec": 150, "primary": ["SHOULDER"], "secondary": ["ARM"], "description": "쇄골 앞에서 바를 머리 위로 밀어 올린다. 코어를 단단히 고정한다.", "caution": "허리를 과도하게 젖히면 요추에 부하가 집중된다." },
-  { "id": "ex-0021", "name": "덤벨 숄더 프레스", "nameEn": "Dumbbell Shoulder Press", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "COMPOUND", "movementPattern": "PUSH", "defaultRestSec": 120, "primary": ["SHOULDER"], "secondary": ["ARM"], "description": "덤벨을 귀 옆 높이에서 위로 밀어 올린다.", "caution": "팔꿈치를 과도하게 벌리면 어깨 충돌이 생길 수 있다." },
-  { "id": "ex-0022", "name": "사이드 레터럴 레이즈", "nameEn": "Side Lateral Raise", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "ISOLATION", "movementPattern": "PUSH", "defaultRestSec": 60, "primary": ["SHOULDER"], "secondary": [], "description": "팔꿈치를 살짝 굽힌 채 옆으로 어깨 높이까지 들어 올린다.", "caution": "승모근이 개입하지 않도록 어깨를 내린 상태를 유지한다." },
-  { "id": "ex-0023", "name": "페이스 풀", "nameEn": "Face Pull", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "CABLE", "movementType": "ISOLATION", "movementPattern": "PULL", "defaultRestSec": 60, "primary": ["SHOULDER"], "secondary": ["BACK"], "description": "얼굴 높이에서 로프를 당기며 외회전을 만든다. 후면삼각근과 회전근개에 좋다.", "caution": "중량을 과하게 쓰면 상체 반동이 생겨 효과가 떨어진다." },
-
-  { "id": "ex-0030", "name": "바벨 스쿼트", "nameEn": "Barbell Squat", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "SQUAT", "defaultRestSec": 180, "primary": ["LEG"], "secondary": ["GLUTE", "LOWER_BACK"], "description": "바를 승모근 위에 올리고 고관절과 무릎을 동시에 접어 앉았다가 일어선다.", "caution": "무릎이 안쪽으로 모이지 않도록 하고, 허리 중립을 유지한다." },
-  { "id": "ex-0031", "name": "레그 프레스", "nameEn": "Leg Press", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "MACHINE", "movementType": "COMPOUND", "movementPattern": "SQUAT", "defaultRestSec": 120, "primary": ["LEG"], "secondary": ["GLUTE"], "description": "발판에 어깨너비로 발을 놓고 무릎을 접었다가 밀어낸다.", "caution": "무릎을 끝까지 완전히 펴 잠그지 않는다." },
-  { "id": "ex-0032", "name": "루마니안 데드리프트", "nameEn": "Romanian Deadlift", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "HINGE", "defaultRestSec": 150, "primary": ["GLUTE", "LEG"], "secondary": ["LOWER_BACK"], "description": "무릎을 거의 고정한 채 고관절만 접어 바를 허벅지 앞으로 내린다.", "caution": "햄스트링 유연성 범위를 넘어 내리면 허리가 말린다." },
-  { "id": "ex-0033", "name": "레그 익스텐션", "nameEn": "Leg Extension", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "MACHINE", "movementType": "ISOLATION", "movementPattern": "SQUAT", "defaultRestSec": 75, "primary": ["LEG"], "secondary": [], "description": "무릎을 펴며 대퇴사두를 수축시킨다.", "caution": "고중량으로 반동을 주면 무릎 관절에 부담이 크다." },
-  { "id": "ex-0034", "name": "레그 컬", "nameEn": "Leg Curl", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "MACHINE", "movementType": "ISOLATION", "movementPattern": "HINGE", "defaultRestSec": 75, "primary": ["LEG"], "secondary": [], "description": "무릎을 접으며 햄스트링을 수축시킨다.", "caution": "골반이 들리지 않도록 눌러 고정한다." },
-  { "id": "ex-0035", "name": "런지", "nameEn": "Lunge", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "COMPOUND", "movementPattern": "SQUAT", "isUnilateral": true, "defaultRestSec": 90, "primary": ["LEG", "GLUTE"], "secondary": [], "description": "한 발을 앞으로 내딛고 뒷무릎이 바닥에 닿기 직전까지 내려간다.", "caution": "앞무릎이 발끝보다 과하게 나가지 않도록 보폭을 확보한다." },
-  { "id": "ex-0036", "name": "힙 쓰러스트", "nameEn": "Hip Thrust", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "COMPOUND", "movementPattern": "HINGE", "defaultRestSec": 120, "primary": ["GLUTE"], "secondary": ["LEG"], "description": "등 상부를 벤치에 대고 골반을 위로 밀어 올려 둔근을 수축시킨다.", "caution": "정점에서 허리를 젖히지 말고 골반을 말아 넣는다." },
-  { "id": "ex-0037", "name": "카프 레이즈", "nameEn": "Calf Raise", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "MACHINE", "movementType": "ISOLATION", "movementPattern": "SQUAT", "defaultRestSec": 60, "primary": ["CALF"], "secondary": [], "description": "발끝으로 서서 종아리를 최대한 수축했다가 천천히 내린다.", "caution": "반동으로 튀지 말고 가동범위를 끝까지 사용한다." },
-
-  { "id": "ex-0040", "name": "바벨 컬", "nameEn": "Barbell Curl", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "ISOLATION", "movementPattern": "PULL", "defaultRestSec": 75, "primary": ["ARM"], "secondary": ["FOREARM"], "description": "팔꿈치를 몸통 옆에 고정하고 바를 감아올린다.", "caution": "상체를 흔들어 반동을 쓰면 이두 자극이 줄어든다." },
-  { "id": "ex-0041", "name": "덤벨 해머컬", "nameEn": "Dumbbell Hammer Curl", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "ISOLATION", "movementPattern": "PULL", "defaultRestSec": 60, "primary": ["ARM"], "secondary": ["FOREARM"], "description": "손등이 바깥을 향하는 중립 그립으로 덤벨을 들어 올린다.", "caution": "어깨를 들썩이며 올리지 않는다." },
-  { "id": "ex-0042", "name": "케이블 푸시다운", "nameEn": "Cable Pushdown", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "CABLE", "movementType": "ISOLATION", "movementPattern": "PUSH", "defaultRestSec": 60, "primary": ["ARM"], "secondary": [], "description": "팔꿈치를 몸통에 고정하고 아래로 밀어 삼두를 수축시킨다.", "caution": "팔꿈치가 앞뒤로 움직이면 등 근육이 개입한다." },
-  { "id": "ex-0043", "name": "라잉 트라이셉스 익스텐션", "nameEn": "Lying Triceps Extension", "recordType": "WEIGHT_REPS", "exerciseType": "WEIGHT", "equipment": "BARBELL", "movementType": "ISOLATION", "movementPattern": "PUSH", "defaultRestSec": 75, "primary": ["ARM"], "secondary": [], "description": "누운 상태에서 팔꿈치를 고정하고 이마 방향으로 내렸다가 편다.", "caution": "팔꿈치 통증이 있으면 EZ바나 덤벨로 대체한다." },
-
-  { "id": "ex-0050", "name": "플랭크", "nameEn": "Plank", "recordType": "TIME", "exerciseType": "BODYWEIGHT", "equipment": "BODYWEIGHT", "movementType": "ISOLATION", "movementPattern": "CORE", "defaultRestSec": 60, "primary": ["ABS"], "secondary": ["LOWER_BACK"], "description": "팔꿈치와 발끝으로 몸을 일직선으로 유지한다.", "caution": "엉덩이가 처지거나 솟지 않도록 중립을 유지한다." },
-  { "id": "ex-0051", "name": "크런치", "nameEn": "Crunch", "recordType": "REPS_ONLY", "exerciseType": "BODYWEIGHT", "equipment": "BODYWEIGHT", "movementType": "ISOLATION", "movementPattern": "CORE", "defaultRestSec": 45, "primary": ["ABS"], "secondary": [], "description": "상체를 말아 올리며 복직근을 수축시킨다.", "caution": "목을 손으로 잡아당기지 않는다." },
-  { "id": "ex-0052", "name": "행잉 레그 레이즈", "nameEn": "Hanging Leg Raise", "recordType": "REPS_ONLY", "exerciseType": "BODYWEIGHT", "equipment": "BODYWEIGHT", "movementType": "ISOLATION", "movementPattern": "CORE", "defaultRestSec": 75, "primary": ["ABS"], "secondary": [], "description": "바에 매달려 다리를 들어 올린다.", "caution": "반동으로 흔들리면 고관절 굴곡근만 사용된다." },
-
-  { "id": "ex-0060", "name": "트레드밀 러닝", "nameEn": "Treadmill Running", "recordType": "DISTANCE_TIME", "exerciseType": "CARDIO", "equipment": "MACHINE", "movementType": "COMPOUND", "defaultRestSec": 0, "primary": ["FULL_BODY"], "secondary": ["LEG"], "description": "트레드밀에서 목표 시간·거리로 달린다.", "caution": "무릎 통증이 있으면 경사 걷기로 대체한다." },
-  { "id": "ex-0061", "name": "사이클", "nameEn": "Stationary Bike", "recordType": "DISTANCE_TIME", "exerciseType": "CARDIO", "equipment": "MACHINE", "movementType": "COMPOUND", "defaultRestSec": 0, "primary": ["LEG"], "secondary": [], "description": "실내 자전거로 목표 시간·거리를 수행한다.", "caution": "안장 높이를 다리가 거의 펴지는 위치로 맞춘다." },
-  { "id": "ex-0062", "name": "로잉 머신", "nameEn": "Rowing Machine", "recordType": "DISTANCE_TIME", "exerciseType": "CARDIO", "equipment": "MACHINE", "movementType": "COMPOUND", "movementPattern": "PULL", "defaultRestSec": 0, "primary": ["FULL_BODY"], "secondary": ["BACK", "LEG"], "description": "다리 → 상체 → 팔 순서로 밀고 당긴다.", "caution": "허리만 사용해 당기면 요추 부하가 커진다." },
-  { "id": "ex-0063", "name": "파머스 워크", "nameEn": "Farmer's Walk", "recordType": "WEIGHT_TIME", "exerciseType": "WEIGHT", "equipment": "DUMBBELL", "movementType": "COMPOUND", "movementPattern": "CARRY", "defaultRestSec": 90, "primary": ["FOREARM", "FULL_BODY"], "secondary": ["SHOULDER"], "description": "무거운 중량을 양손에 들고 정해진 시간 동안 걷는다.", "caution": "어깨가 앞으로 말리지 않게 견갑을 고정한다." }
+ {
+  "id": "ex-0001",
+  "name": "바벨 벤치프레스",
+  "nameEn": "Barbell Bench Press - Medium Grip",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0002",
+  "name": "와이드그립 벤치프레스",
+  "nameEn": "Wide-Grip Barbell Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0003",
+  "name": "인클라인 바벨 벤치프레스",
+  "nameEn": "Barbell Incline Bench Press - Medium Grip",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0004",
+  "name": "디클라인 바벨 벤치프레스",
+  "nameEn": "Decline Barbell Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0005",
+  "name": "덤벨 벤치프레스",
+  "nameEn": "Dumbbell Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0006",
+  "name": "뉴트럴그립 덤벨 벤치프레스",
+  "nameEn": "Dumbbell Bench Press with Neutral Grip",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0007",
+  "name": "인클라인 덤벨 프레스",
+  "nameEn": "Incline Dumbbell Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0008",
+  "name": "디클라인 덤벨 벤치프레스",
+  "nameEn": "Decline Dumbbell Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0009",
+  "name": "덤벨 플라이",
+  "nameEn": "Dumbbell Flyes",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0010",
+  "name": "인클라인 덤벨 플라이",
+  "nameEn": "Incline Dumbbell Flyes",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0011",
+  "name": "디클라인 덤벨 플라이",
+  "nameEn": "Decline Dumbbell Flyes",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0012",
+  "name": "케이블 크로스오버",
+  "nameEn": "Cable Crossover",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0013",
+  "name": "로우 케이블 크로스오버",
+  "nameEn": "Low Cable Crossover",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0014",
+  "name": "케이블 플라이",
+  "nameEn": "Flat Bench Cable Flyes",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0015",
+  "name": "인클라인 케이블 플라이",
+  "nameEn": "Incline Cable Flye",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0016",
+  "name": "케이블 체스트 프레스",
+  "nameEn": "Cable Chest Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0017",
+  "name": "펙덱 플라이",
+  "nameEn": "Butterfly",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0018",
+  "name": "체스트 프레스 머신",
+  "nameEn": "Machine Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0019",
+  "name": "레버리지 체스트 프레스",
+  "nameEn": "Leverage Chest Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0020",
+  "name": "레버리지 인클라인 체스트 프레스",
+  "nameEn": "Leverage Incline Chest Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0021",
+  "name": "스미스머신 벤치프레스",
+  "nameEn": "Smith Machine Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0022",
+  "name": "스미스머신 인클라인 벤치프레스",
+  "nameEn": "Smith Machine Incline Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0023",
+  "name": "푸시업",
+  "nameEn": "Pushups",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0024",
+  "name": "와이드 푸시업",
+  "nameEn": "Push-Up Wide",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "ABS",
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0025",
+  "name": "디클라인 푸시업",
+  "nameEn": "Push-Ups With Feet Elevated",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0026",
+  "name": "인클라인 푸시업",
+  "nameEn": "Incline Push-Up",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0027",
+  "name": "덤벨 풀오버",
+  "nameEn": "Straight-Arm Dumbbell Pullover",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "CHEST"
+  ],
+  "secondary": [
+   "BACK",
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0028",
+  "name": "와이드그립 랫풀다운",
+  "nameEn": "Wide-Grip Lat Pulldown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0029",
+  "name": "클로즈그립 랫풀다운",
+  "nameEn": "Close-Grip Front Lat Pulldown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0030",
+  "name": "언더그립 랫풀다운",
+  "nameEn": "Underhand Cable Pulldowns",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0031",
+  "name": "V바 랫풀다운",
+  "nameEn": "V-Bar Pulldown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0032",
+  "name": "원암 랫풀다운",
+  "nameEn": "One Arm Lat Pulldown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "isUnilateral": true,
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0033",
+  "name": "풀 가동범위 랫풀다운",
+  "nameEn": "Full Range-Of-Motion Lat Pulldown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0034",
+  "name": "스트레이트암 풀다운",
+  "nameEn": "Straight-Arm Pulldown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0035",
+  "name": "로프 스트레이트암 풀다운",
+  "nameEn": "Rope Straight-Arm Pulldown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0036",
+  "name": "풀업",
+  "nameEn": "Pullups",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0037",
+  "name": "친업",
+  "nameEn": "Chin-Up",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0038",
+  "name": "V바 풀업",
+  "nameEn": "V-Bar Pullup",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0039",
+  "name": "와이드그립 풀업",
+  "nameEn": "Wide-Grip Rear Pull-Up",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0040",
+  "name": "바벨 로우",
+  "nameEn": "Bent Over Barbell Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0041",
+  "name": "언더그립 바벨 로우",
+  "nameEn": "Reverse Grip Bent-Over Rows",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0042",
+  "name": "원암 덤벨 로우",
+  "nameEn": "One-Arm Dumbbell Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "isUnilateral": true,
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0043",
+  "name": "덤벨 벤트오버 로우",
+  "nameEn": "Bent Over Two-Dumbbell Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0044",
+  "name": "뉴트럴그립 덤벨 로우",
+  "nameEn": "Bent Over Two-Dumbbell Row With Palms In",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0045",
+  "name": "인클라인 덤벨 로우",
+  "nameEn": "Dumbbell Incline Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "FOREARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0046",
+  "name": "시티드 케이블 로우",
+  "nameEn": "Seated Cable Rows",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0047",
+  "name": "원암 케이블 로우",
+  "nameEn": "Seated One-arm Cable Pulley Rows",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "isUnilateral": true,
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0048",
+  "name": "T바 로우",
+  "nameEn": "Lying T-Bar Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0049",
+  "name": "T바 로우 (핸들)",
+  "nameEn": "T-Bar Row with Handle",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0050",
+  "name": "레버리지 하이 로우",
+  "nameEn": "Leverage High Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0051",
+  "name": "레버리지 아이소 로우",
+  "nameEn": "Leverage Iso Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0052",
+  "name": "스미스머신 벤트오버 로우",
+  "nameEn": "Smith Machine Bent Over Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0053",
+  "name": "바벨 풀오버",
+  "nameEn": "Bent-Arm Barbell Pullover",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0054",
+  "name": "닐링 하이풀리 로우",
+  "nameEn": "Kneeling High Pulley Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0055",
+  "name": "바벨 슈러그",
+  "nameEn": "Barbell Shrug",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0056",
+  "name": "덤벨 슈러그",
+  "nameEn": "Dumbbell Shrug",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0057",
+  "name": "케이블 슈러그",
+  "nameEn": "Cable Shrugs",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0058",
+  "name": "머신 슈러그",
+  "nameEn": "Leverage Shrug",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0059",
+  "name": "케이블 업라이트 로우",
+  "nameEn": "Upright Cable Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0060",
+  "name": "덤벨 업라이트 로우",
+  "nameEn": "Standing Dumbbell Upright Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "BACK"
+  ],
+  "secondary": [
+   "ARM",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0061",
+  "name": "바벨 숄더프레스",
+  "nameEn": "Barbell Shoulder Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "CHEST",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0062",
+  "name": "시티드 밀리터리 프레스",
+  "nameEn": "Seated Barbell Military Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0063",
+  "name": "스탠딩 밀리터리 프레스",
+  "nameEn": "Standing Military Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0064",
+  "name": "덤벨 숄더프레스",
+  "nameEn": "Dumbbell Shoulder Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0065",
+  "name": "시티드 덤벨 프레스",
+  "nameEn": "Seated Dumbbell Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0066",
+  "name": "아놀드 프레스",
+  "nameEn": "Arnold Dumbbell Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0067",
+  "name": "머신 숄더프레스",
+  "nameEn": "Machine Shoulder (Military) Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0068",
+  "name": "스미스머신 숄더프레스",
+  "nameEn": "Smith Machine Overhead Shoulder Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0069",
+  "name": "레버리지 숄더프레스",
+  "nameEn": "Leverage Shoulder Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0070",
+  "name": "케이블 숄더프레스",
+  "nameEn": "Cable Shoulder Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0071",
+  "name": "푸시 프레스",
+  "nameEn": "Push Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "LEG",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0072",
+  "name": "사이드 레터럴 레이즈",
+  "nameEn": "Side Lateral Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0073",
+  "name": "시티드 사이드 레터럴 레이즈",
+  "nameEn": "Seated Side Lateral Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0074",
+  "name": "케이블 사이드 레터럴 레이즈",
+  "nameEn": "Standing Low-Pulley Deltoid Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0075",
+  "name": "원암 사이드 레터럴 레이즈",
+  "nameEn": "One-Arm Side Laterals",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "isUnilateral": true,
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0076",
+  "name": "프론트 레이즈",
+  "nameEn": "Front Dumbbell Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0077",
+  "name": "케이블 프론트 레이즈",
+  "nameEn": "Front Cable Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0078",
+  "name": "양손 프론트 레이즈",
+  "nameEn": "Front Two-Dumbbell Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0079",
+  "name": "리어 델트 플라이",
+  "nameEn": "Reverse Flyes",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0080",
+  "name": "펙덱 리어 델트 플라이",
+  "nameEn": "Reverse Machine Flyes",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0081",
+  "name": "벤트오버 리어 레이즈",
+  "nameEn": "Seated Bent-Over Rear Delt Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0082",
+  "name": "케이블 리어 델트 플라이",
+  "nameEn": "Cable Rear Delt Fly",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0083",
+  "name": "페이스 풀",
+  "nameEn": "Face Pull",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "BACK"
+  ]
+ },
+ {
+  "id": "ex-0084",
+  "name": "바벨 업라이트 로우",
+  "nameEn": "Upright Barbell Row",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "BACK"
+  ]
+ },
+ {
+  "id": "ex-0085",
+  "name": "익스터널 로테이션",
+  "nameEn": "External Rotation",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0086",
+  "name": "핸드스탠드 푸시업",
+  "nameEn": "Handstand Push-Ups",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "SHOULDER"
+  ],
+  "secondary": [
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0087",
+  "name": "바벨 컬",
+  "nameEn": "Barbell Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0088",
+  "name": "EZ바 컬",
+  "nameEn": "EZ-Bar Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0089",
+  "name": "클로즈그립 바벨 컬",
+  "nameEn": "Close-Grip Standing Barbell Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0090",
+  "name": "와이드그립 바벨 컬",
+  "nameEn": "Wide-Grip Standing Barbell Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0091",
+  "name": "리버스 바벨 컬",
+  "nameEn": "Reverse Barbell Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0092",
+  "name": "덤벨 컬",
+  "nameEn": "Dumbbell Bicep Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0093",
+  "name": "얼터네이트 덤벨 컬",
+  "nameEn": "Dumbbell Alternate Bicep Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "isUnilateral": true,
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0094",
+  "name": "시티드 덤벨 컬",
+  "nameEn": "Seated Dumbbell Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0095",
+  "name": "인클라인 덤벨 컬",
+  "nameEn": "Incline Dumbbell Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0096",
+  "name": "컨센트레이션 컬",
+  "nameEn": "Concentration Curls",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0097",
+  "name": "해머 컬",
+  "nameEn": "Hammer Curls",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0098",
+  "name": "크로스바디 해머 컬",
+  "nameEn": "Cross Body Hammer Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0099",
+  "name": "인클라인 해머 컬",
+  "nameEn": "Incline Hammer Curls",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0100",
+  "name": "프리처 컬",
+  "nameEn": "Preacher Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0101",
+  "name": "머신 프리처 컬",
+  "nameEn": "Machine Preacher Curls",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0102",
+  "name": "원암 덤벨 프리처 컬",
+  "nameEn": "One Arm Dumbbell Preacher Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "isUnilateral": true,
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0103",
+  "name": "케이블 컬",
+  "nameEn": "Standing Biceps Cable Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0104",
+  "name": "로프 해머 컬",
+  "nameEn": "Cable Hammer Curls - Rope Attachment",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0105",
+  "name": "스파이더 컬",
+  "nameEn": "Spider Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0106",
+  "name": "드래그 컬",
+  "nameEn": "Drag Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0107",
+  "name": "조트만 컬",
+  "nameEn": "Zottman Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0108",
+  "name": "머신 바이셉 컬",
+  "nameEn": "Machine Bicep Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0109",
+  "name": "케이블 푸시다운",
+  "nameEn": "Triceps Pushdown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0110",
+  "name": "로프 푸시다운",
+  "nameEn": "Triceps Pushdown - Rope Attachment",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0111",
+  "name": "V바 푸시다운",
+  "nameEn": "Triceps Pushdown - V-Bar Attachment",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0112",
+  "name": "리버스그립 푸시다운",
+  "nameEn": "Reverse Grip Triceps Pushdown",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0113",
+  "name": "클로즈그립 벤치프레스",
+  "nameEn": "Close-Grip Barbell Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0114",
+  "name": "클로즈그립 덤벨 프레스",
+  "nameEn": "Close-Grip Dumbbell Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0115",
+  "name": "스미스머신 클로즈그립 벤치프레스",
+  "nameEn": "Smith Machine Close-Grip Bench Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0116",
+  "name": "EZ바 스컬크러셔",
+  "nameEn": "EZ-Bar Skullcrusher",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0117",
+  "name": "라잉 트라이셉 익스텐션",
+  "nameEn": "Lying Triceps Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0118",
+  "name": "로프 오버헤드 익스텐션",
+  "nameEn": "Cable Rope Overhead Triceps Extension",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0119",
+  "name": "바벨 오버헤드 익스텐션",
+  "nameEn": "Standing Overhead Barbell Triceps Extension",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0120",
+  "name": "시티드 덤벨 오버헤드 익스텐션",
+  "nameEn": "Seated Triceps Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0121",
+  "name": "덤벨 오버헤드 익스텐션",
+  "nameEn": "Standing Dumbbell Triceps Extension",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0122",
+  "name": "원암 덤벨 익스텐션",
+  "nameEn": "Dumbbell One-Arm Triceps Extension",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "isUnilateral": true,
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0123",
+  "name": "덤벨 킥백",
+  "nameEn": "Tricep Dumbbell Kickback",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0124",
+  "name": "벤치 딥스",
+  "nameEn": "Bench Dips",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0125",
+  "name": "딥스",
+  "nameEn": "Dips - Triceps Version",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0126",
+  "name": "딥스 머신",
+  "nameEn": "Dip Machine",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0127",
+  "name": "머신 트라이셉 익스텐션",
+  "nameEn": "Machine Triceps Extension",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0128",
+  "name": "테이트 프레스",
+  "nameEn": "Tate Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0129",
+  "name": "플로어 프레스",
+  "nameEn": "Floor Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "ARM"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0130",
+  "name": "바벨 스쿼트",
+  "nameEn": "Barbell Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0131",
+  "name": "풀 스쿼트",
+  "nameEn": "Barbell Full Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0132",
+  "name": "프론트 스쿼트",
+  "nameEn": "Front Barbell Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0133",
+  "name": "박스 스쿼트",
+  "nameEn": "Box Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0134",
+  "name": "오버헤드 스쿼트",
+  "nameEn": "Overhead Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "ABS",
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK",
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0135",
+  "name": "내로우 스탠스 스쿼트",
+  "nameEn": "Narrow Stance Squats",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0136",
+  "name": "와이드 스탠스 스쿼트",
+  "nameEn": "Wide Stance Barbell Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0137",
+  "name": "맨몸 스쿼트",
+  "nameEn": "Bodyweight Squat",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0138",
+  "name": "덤벨 스쿼트",
+  "nameEn": "Dumbbell Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0139",
+  "name": "플리에 덤벨 스쿼트",
+  "nameEn": "Plie Dumbbell Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "ABS",
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0140",
+  "name": "스미스머신 스쿼트",
+  "nameEn": "Smith Machine Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0141",
+  "name": "핵 스쿼트",
+  "nameEn": "Hack Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0142",
+  "name": "바벨 핵 스쿼트",
+  "nameEn": "Barbell Hack Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "FOREARM"
+  ]
+ },
+ {
+  "id": "ex-0143",
+  "name": "저처 스쿼트",
+  "nameEn": "Zercher Squats",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0144",
+  "name": "레그 프레스",
+  "nameEn": "Leg Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0145",
+  "name": "내로우 레그 프레스",
+  "nameEn": "Narrow Stance Leg Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0146",
+  "name": "레그 익스텐션",
+  "nameEn": "Leg Extensions",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0147",
+  "name": "원레그 레그 익스텐션",
+  "nameEn": "Single-Leg Leg Extension",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0148",
+  "name": "바벨 런지",
+  "nameEn": "Barbell Lunge",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0149",
+  "name": "덤벨 런지",
+  "nameEn": "Dumbbell Lunges",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0150",
+  "name": "워킹 런지",
+  "nameEn": "Barbell Walking Lunge",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0151",
+  "name": "리버스 런지",
+  "nameEn": "Dumbbell Rear Lunge",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0152",
+  "name": "스플릿 스쿼트",
+  "nameEn": "Split Squat with Dumbbells",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0153",
+  "name": "스미스머신 스플릿 스쿼트",
+  "nameEn": "Smith Single-Leg Split Squat",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0154",
+  "name": "바벨 스텝업",
+  "nameEn": "Barbell Step Ups",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0155",
+  "name": "덤벨 스텝업",
+  "nameEn": "Dumbbell Step Ups",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0156",
+  "name": "어덕터 머신",
+  "nameEn": "Thigh Adductor",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0157",
+  "name": "앱덕터 머신",
+  "nameEn": "Thigh Abductor",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0158",
+  "name": "루마니안 데드리프트",
+  "nameEn": "Romanian Deadlift",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0159",
+  "name": "스티프 레그 데드리프트",
+  "nameEn": "Stiff-Legged Barbell Deadlift",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0160",
+  "name": "덤벨 스티프 레그 데드리프트",
+  "nameEn": "Stiff-Legged Dumbbell Deadlift",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0161",
+  "name": "스모 데드리프트",
+  "nameEn": "Sumo Deadlift",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "FOREARM",
+   "GLUTE",
+   "LOWER_BACK",
+   "BACK"
+  ]
+ },
+ {
+  "id": "ex-0162",
+  "name": "라잉 레그컬",
+  "nameEn": "Lying Leg Curls",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0163",
+  "name": "시티드 레그컬",
+  "nameEn": "Seated Leg Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0164",
+  "name": "스탠딩 레그컬",
+  "nameEn": "Standing Leg Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0165",
+  "name": "굿모닝",
+  "nameEn": "Good Morning",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "ABS",
+   "GLUTE",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0166",
+  "name": "글루트 햄 레이즈",
+  "nameEn": "Glute Ham Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0167",
+  "name": "바벨 힙 쓰러스트",
+  "nameEn": "Barbell Hip Thrust",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "GLUTE"
+  ],
+  "secondary": [
+   "CALF",
+   "LEG"
+  ]
+ },
+ {
+  "id": "ex-0168",
+  "name": "바벨 글루트 브릿지",
+  "nameEn": "Barbell Glute Bridge",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "GLUTE"
+  ],
+  "secondary": [
+   "CALF",
+   "LEG"
+  ]
+ },
+ {
+  "id": "ex-0169",
+  "name": "글루트 브릿지",
+  "nameEn": "Butt Lift (Bridge)",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "GLUTE"
+  ],
+  "secondary": [
+   "LEG"
+  ]
+ },
+ {
+  "id": "ex-0170",
+  "name": "원레그 글루트 브릿지",
+  "nameEn": "Single Leg Glute Bridge",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "HINGE",
+  "isUnilateral": true,
+  "defaultRestSec": 150,
+  "primary": [
+   "GLUTE"
+  ],
+  "secondary": [
+   "LEG"
+  ]
+ },
+ {
+  "id": "ex-0171",
+  "name": "케이블 킥백",
+  "nameEn": "One-Legged Cable Kickback",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "HINGE",
+  "isUnilateral": true,
+  "defaultRestSec": 150,
+  "primary": [
+   "GLUTE"
+  ],
+  "secondary": [
+   "LEG"
+  ]
+ },
+ {
+  "id": "ex-0172",
+  "name": "케이블 풀 스루",
+  "nameEn": "Pull Through",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "GLUTE"
+  ],
+  "secondary": [
+   "LEG",
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0173",
+  "name": "리버스 하이퍼익스텐션",
+  "nameEn": "Reverse Hyperextension",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0174",
+  "name": "데드리프트",
+  "nameEn": "Barbell Deadlift",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LOWER_BACK"
+  ],
+  "secondary": [
+   "CALF",
+   "FOREARM",
+   "GLUTE",
+   "LEG",
+   "BACK"
+  ]
+ },
+ {
+  "id": "ex-0175",
+  "name": "랙풀",
+  "nameEn": "Rack Pulls",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LOWER_BACK"
+  ],
+  "secondary": [
+   "FOREARM",
+   "GLUTE",
+   "LEG",
+   "BACK"
+  ]
+ },
+ {
+  "id": "ex-0176",
+  "name": "데피싯 데드리프트",
+  "nameEn": "Deficit Deadlift",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LOWER_BACK"
+  ],
+  "secondary": [
+   "FOREARM",
+   "GLUTE",
+   "LEG",
+   "BACK"
+  ]
+ },
+ {
+  "id": "ex-0177",
+  "name": "백 익스텐션",
+  "nameEn": "Hyperextensions With No Hyperextension Bench",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "HINGE",
+  "defaultRestSec": 150,
+  "primary": [
+   "LOWER_BACK"
+  ],
+  "secondary": [
+   "GLUTE",
+   "LEG"
+  ]
+ },
+ {
+  "id": "ex-0178",
+  "name": "스탠딩 카프 레이즈",
+  "nameEn": "Standing Calf Raises",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CALF"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0179",
+  "name": "시티드 카프 레이즈",
+  "nameEn": "Seated Calf Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CALF"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0180",
+  "name": "레그프레스 카프 레이즈",
+  "nameEn": "Calf Press On The Leg Press Machine",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "SQUAT",
+  "defaultRestSec": 150,
+  "primary": [
+   "CALF"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0181",
+  "name": "바벨 카프 레이즈",
+  "nameEn": "Standing Barbell Calf Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CALF"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0182",
+  "name": "덤벨 카프 레이즈",
+  "nameEn": "Standing Dumbbell Calf Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CALF"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0183",
+  "name": "스미스머신 카프 레이즈",
+  "nameEn": "Smith Machine Calf Raise",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PUSH",
+  "defaultRestSec": 120,
+  "primary": [
+   "CALF"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0184",
+  "name": "크런치",
+  "nameEn": "Crunches",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0185",
+  "name": "케이블 크런치",
+  "nameEn": "Cable Crunch",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0186",
+  "name": "로프 크런치",
+  "nameEn": "Rope Crunch",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0187",
+  "name": "행잉 레그 레이즈",
+  "nameEn": "Hanging Leg Raise",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0188",
+  "name": "라잉 레그 레이즈",
+  "nameEn": "Flat Bench Lying Leg Raise",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0189",
+  "name": "리버스 크런치",
+  "nameEn": "Reverse Crunch",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0190",
+  "name": "디클라인 크런치",
+  "nameEn": "Decline Crunch",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0191",
+  "name": "크로스바디 크런치",
+  "nameEn": "Cross-Body Crunch",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0192",
+  "name": "오블리크 크런치",
+  "nameEn": "Oblique Crunches",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0193",
+  "name": "러시안 트위스트",
+  "nameEn": "Russian Twist",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": [
+   "LOWER_BACK"
+  ]
+ },
+ {
+  "id": "ex-0194",
+  "name": "플랭크",
+  "nameEn": "Plank",
+  "recordType": "TIME",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0195",
+  "name": "사이드 플랭크",
+  "nameEn": "Side Bridge",
+  "recordType": "TIME",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0196",
+  "name": "크런치 머신",
+  "nameEn": "Ab Crunch Machine",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "MACHINE",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0197",
+  "name": "에어 바이크",
+  "nameEn": "Air Bike",
+  "recordType": "TIME",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0198",
+  "name": "싯업",
+  "nameEn": "Sit-Up",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0199",
+  "name": "앱 롤아웃",
+  "nameEn": "Barbell Ab Rollout - On Knees",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": [
+   "LOWER_BACK",
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0200",
+  "name": "팔로프 프레스",
+  "nameEn": "Pallof Press",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": [
+   "CHEST",
+   "SHOULDER",
+   "ARM"
+  ]
+ },
+ {
+  "id": "ex-0201",
+  "name": "케이블 우드찹",
+  "nameEn": "Standing Cable Wood Chop",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": [
+   "SHOULDER"
+  ]
+ },
+ {
+  "id": "ex-0202",
+  "name": "덤벨 사이드 밴드",
+  "nameEn": "Dumbbell Side Bend",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "DUMBBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0203",
+  "name": "플러터 킥",
+  "nameEn": "Flutter Kicks",
+  "recordType": "TIME",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "GLUTE"
+  ],
+  "secondary": [
+   "LEG"
+  ]
+ },
+ {
+  "id": "ex-0204",
+  "name": "레그 풀인",
+  "nameEn": "Leg Pull-In",
+  "recordType": "REPS_ONLY",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0205",
+  "name": "데드버그",
+  "nameEn": "Dead Bug",
+  "recordType": "TIME",
+  "exerciseType": "BODYWEIGHT",
+  "equipment": "BODYWEIGHT",
+  "movementType": "COMPOUND",
+  "movementPattern": "CORE",
+  "defaultRestSec": 60,
+  "primary": [
+   "ABS"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0206",
+  "name": "바벨 리스트 컬",
+  "nameEn": "Palms-Up Barbell Wrist Curl Over A Bench",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "FOREARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0207",
+  "name": "리버스 리스트 컬",
+  "nameEn": "Palms-Down Wrist Curl Over A Bench",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "FOREARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0208",
+  "name": "케이블 리스트 컬",
+  "nameEn": "Cable Wrist Curl",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "CABLE",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "FOREARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0209",
+  "name": "핑거 컬",
+  "nameEn": "Finger Curls",
+  "recordType": "WEIGHT_REPS",
+  "exerciseType": "WEIGHT",
+  "equipment": "BARBELL",
+  "movementType": "ISOLATION",
+  "movementPattern": "PULL",
+  "defaultRestSec": 120,
+  "primary": [
+   "FOREARM"
+  ],
+  "secondary": []
+ },
+ {
+  "id": "ex-0210",
+  "name": "트레드밀 러닝",
+  "nameEn": "Running, Treadmill",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0211",
+  "name": "트레드밀 조깅",
+  "nameEn": "Jogging, Treadmill",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0212",
+  "name": "트레드밀 걷기",
+  "nameEn": "Walking, Treadmill",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0213",
+  "name": "실내 사이클",
+  "nameEn": "Bicycling, Stationary",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0214",
+  "name": "리컴번트 바이크",
+  "nameEn": "Recumbent Bike",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0215",
+  "name": "로잉 머신",
+  "nameEn": "Rowing, Stationary",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "ARM",
+   "CALF",
+   "GLUTE",
+   "LOWER_BACK",
+   "BACK"
+  ]
+ },
+ {
+  "id": "ex-0216",
+  "name": "일립티컬",
+  "nameEn": "Elliptical Trainer",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0217",
+  "name": "스테어마스터",
+  "nameEn": "Stairmaster",
+  "recordType": "DISTANCE_TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "MACHINE",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF",
+   "GLUTE"
+  ]
+ },
+ {
+  "id": "ex-0218",
+  "name": "줄넘기",
+  "nameEn": "Rope Jumping",
+  "recordType": "TIME",
+  "exerciseType": "CARDIO",
+  "equipment": "ETC",
+  "movementType": "COMPOUND",
+  "defaultRestSec": 90,
+  "primary": [
+   "LEG"
+  ],
+  "secondary": [
+   "CALF"
+  ]
+ },
+ {
+  "id": "ex-0219",
+  "name": "파머스 워크",
+  "nameEn": "Farmer's Walk",
+  "recordType": "WEIGHT_TIME",
+  "exerciseType": "WEIGHT",
+  "equipment": "ETC",
+  "movementType": "COMPOUND",
+  "movementPattern": "CARRY",
+  "defaultRestSec": 90,
+  "primary": [
+   "FOREARM"
+  ],
+  "secondary": [
+   "ABS",
+   "GLUTE",
+   "LEG",
+   "LOWER_BACK",
+   "BACK"
+  ]
+ }
 ]
