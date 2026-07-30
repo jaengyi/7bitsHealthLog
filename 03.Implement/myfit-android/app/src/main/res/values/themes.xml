@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose 가 실제 테마를 담당한다. 시스템 창 스타일만 여기서 지정. -->
+    <style name="Theme.MyFit" parent="android:Theme.Material.NoActionBar" />
+</resources>

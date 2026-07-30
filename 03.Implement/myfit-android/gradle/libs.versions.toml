@@ -1,0 +1,133 @@
+## MyFit — Version Catalog
+## 모든 의존성 버전은 이 파일에서만 관리한다. (02.Design/02_개발환경및빌드정의서.md §3)
+## 최종 확인: 2026-07-30 (Google Maven / Maven Central / Gradle Plugin Portal 실측)
+
+[versions]
+# ── 툴체인 ──────────────────────────────────────────────
+agp                      = "8.13.2"
+kotlin                   = "2.3.10"   # KSP 지원 상한에 맞춤
+ksp                      = "2.3.10"   # Kotlin 버전과 반드시 일치
+hilt                     = "2.58"      # 2.59+ 는 AGP 9.0 요구 → AGP 8.x 와 호환되는 마지막 버전
+javaVersion              = "17"
+# ── SDK ────────────────────────────────────────────────
+compileSdk               = "36"
+minSdk                   = "26"       # REQ-NFR-005 (Android 8.0)
+targetSdk                = "36"
+# ── AndroidX ───────────────────────────────────────────
+coreKtx                  = "1.18.0"   # 1.19.0 은 minCompileSdk 37 요구
+lifecycle                = "2.10.0"   # 2.11.0 은 minCompileSdk 37 요구
+activityCompose          = "1.13.0"
+composeBom               = "2026.06.01"
+navigationCompose        = "2.9.8"
+room                     = "2.8.4"
+datastore                = "1.2.1"
+work                     = "2.11.2"
+hiltExt                  = "1.3.0"    # 1.4.0 은 minCompileSdk 37 요구
+securityCrypto           = "1.1.0"
+splashscreen             = "1.2.0"
+# ── 네트워크 ────────────────────────────────────────────
+retrofit                 = "3.0.0"
+okhttp                   = "5.4.0"
+kotlinxSerialization     = "1.11.0"
+# ── 기타 ───────────────────────────────────────────────
+coroutines               = "1.11.0"
+coil                     = "2.7.0"
+vico                     = "3.2.3"
+timber                   = "5.0.1"
+desugarJdkLibs           = "2.1.5"
+# ── 테스트 ─────────────────────────────────────────────
+junit                    = "4.13.2"
+androidxJunit            = "1.3.0"
+espresso                 = "3.7.0"
+mockk                    = "1.14.11"
+turbine                  = "1.2.1"
+truth                    = "1.4.5"
+# ── 품질 ───────────────────────────────────────────────
+kover                    = "0.9.9"
+
+[libraries]
+# ── 컨벤션 플러그인이 참조하는 플러그인 아티팩트 ───────────
+android-gradlePlugin         = { module = "com.android.tools.build:gradle", version.ref = "agp" }
+kotlin-gradlePlugin          = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+compose-gradlePlugin         = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin             = { module = "com.google.devtools.ksp:symbol-processing-gradle-plugin", version.ref = "ksp" }
+
+# ── AndroidX ───────────────────────────────────────────
+androidx-core-ktx            = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-splashscreen        = { module = "androidx.core:core-splashscreen", version.ref = "splashscreen" }
+androidx-lifecycle-runtime   = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-activity-compose    = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+
+compose-bom                  = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+compose-ui                   = { module = "androidx.compose.ui:ui" }
+compose-ui-graphics          = { module = "androidx.compose.ui:ui-graphics" }
+compose-ui-tooling           = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-tooling-preview   = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-ui-test-junit4       = { module = "androidx.compose.ui:ui-test-junit4" }
+compose-ui-test-manifest     = { module = "androidx.compose.ui:ui-test-manifest" }
+compose-material3            = { module = "androidx.compose.material3:material3" }
+compose-material-icons       = { module = "androidx.compose.material:material-icons-extended" }
+androidx-navigation-compose  = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+
+androidx-room-runtime        = { module = "androidx.room:room-runtime", version.ref = "room" }
+androidx-room-ktx            = { module = "androidx.room:room-ktx", version.ref = "room" }
+androidx-room-compiler       = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-testing        = { module = "androidx.room:room-testing", version.ref = "room" }
+
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+androidx-work-runtime        = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
+androidx-security-crypto     = { module = "androidx.security:security-crypto", version.ref = "securityCrypto" }
+
+# ── DI ─────────────────────────────────────────────────
+hilt-android                 = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-compiler                = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+hilt-navigation-compose      = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltExt" }
+hilt-work                    = { module = "androidx.hilt:hilt-work", version.ref = "hiltExt" }
+androidx-hilt-compiler       = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltExt" }
+
+# ── 네트워크 ────────────────────────────────────────────
+retrofit                     = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-kotlinx-converter   = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
+okhttp                       = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttp-logging               = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+kotlinx-serialization-json   = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+# ── 기타 ───────────────────────────────────────────────
+kotlinx-coroutines-android   = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-coroutines-core      = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test      = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+coil-compose                 = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+vico-compose-m3              = { module = "com.patrykandpatrick.vico:compose-m3", version.ref = "vico" }
+timber                       = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+desugar-jdk-libs             = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugarJdkLibs" }
+
+# ── 테스트 ─────────────────────────────────────────────
+junit                        = { module = "junit:junit", version.ref = "junit" }
+androidx-junit               = { module = "androidx.test.ext:junit", version.ref = "androidxJunit" }
+androidx-espresso-core       = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+mockk                        = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-android                = { module = "io.mockk:mockk-android", version.ref = "mockk" }
+turbine                      = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+truth                        = { module = "com.google.truth:truth", version.ref = "truth" }
+
+[plugins]
+android-application    = { id = "com.android.application", version.ref = "agp" }
+android-library        = { id = "com.android.library", version.ref = "agp" }
+kotlin-android         = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-jvm             = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-compose         = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization   = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp                    = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt                   = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kover                  = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+
+# ── 프로젝트 자체 컨벤션 플러그인 (build-logic) ─────────────
+myfit-android-application       = { id = "myfit.android.application" }
+myfit-android-library           = { id = "myfit.android.library" }
+myfit-android-library-compose   = { id = "myfit.android.library.compose" }
+myfit-android-feature           = { id = "myfit.android.feature" }
+myfit-android-hilt              = { id = "myfit.android.hilt" }
+myfit-android-room              = { id = "myfit.android.room" }
+myfit-jvm-library               = { id = "myfit.jvm.library" }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyFit</string>
+    <string name="nav_home">홈</string>
+    <string name="nav_calendar">캘린더</string>
+    <string name="nav_record">기록</string>
+    <string name="nav_routine">루틴</string>
+    <string name="nav_more">더보기</string>
+</resources>

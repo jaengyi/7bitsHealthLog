@@ -1,0 +1,174 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "ddd11676a27d012321c94711af8e7316",
+    "entities": [
+      {
+        "tableName": "exercise",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `user_id` TEXT, `name` TEXT NOT NULL, `name_en` TEXT, `name_chosung` TEXT NOT NULL, `record_type` TEXT NOT NULL, `exercise_type` TEXT NOT NULL, `equipment` TEXT NOT NULL, `movement_type` TEXT NOT NULL, `movement_pattern` TEXT, `is_unilateral` INTEGER NOT NULL, `description` TEXT, `caution` TEXT, `guide_image_asset` TEXT, `muscle_map_asset` TEXT, `default_rest_sec` INTEGER, `is_user_defined` INTEGER NOT NULL, `is_active` INTEGER NOT NULL, `created_at` INTEGER NOT NULL, `updated_at` INTEGER NOT NULL, `is_dirty` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "user_id",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nameEn",
+            "columnName": "name_en",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "nameChosung",
+            "columnName": "name_chosung",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "recordType",
+            "columnName": "record_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exerciseType",
+            "columnName": "exercise_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "equipment",
+            "columnName": "equipment",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movementType",
+            "columnName": "movement_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "movementPattern",
+            "columnName": "movement_pattern",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "isUnilateral",
+            "columnName": "is_unilateral",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "caution",
+            "columnName": "caution",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "guideImageAsset",
+            "columnName": "guide_image_asset",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "muscleMapAsset",
+            "columnName": "muscle_map_asset",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "defaultRestSec",
+            "columnName": "default_rest_sec",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "isUserDefined",
+            "columnName": "is_user_defined",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isActive",
+            "columnName": "is_active",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "created_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updated_at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDirty",
+            "columnName": "is_dirty",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_exercise_name",
+            "unique": false,
+            "columnNames": [
+              "name"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_exercise_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_exercise_name_chosung",
+            "unique": false,
+            "columnNames": [
+              "name_chosung"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_exercise_name_chosung` ON `${TABLE_NAME}` (`name_chosung`)"
+          },
+          {
+            "name": "index_exercise_exercise_type_equipment_is_active",
+            "unique": false,
+            "columnNames": [
+              "exercise_type",
+              "equipment",
+              "is_active"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_exercise_exercise_type_equipment_is_active` ON `${TABLE_NAME}` (`exercise_type`, `equipment`, `is_active`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ddd11676a27d012321c94711af8e7316')"
+    ]
+  }
+}
