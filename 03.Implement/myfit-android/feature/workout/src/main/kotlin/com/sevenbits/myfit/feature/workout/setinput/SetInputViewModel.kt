@@ -10,6 +10,7 @@ import com.sevenbits.myfit.core.domain.model.RestTimerState
 import com.sevenbits.myfit.core.domain.model.SetType
 import com.sevenbits.myfit.core.domain.model.WorkoutSet
 import com.sevenbits.myfit.core.domain.repository.RestTimerController
+import com.sevenbits.myfit.core.domain.repository.UserRepository
 import com.sevenbits.myfit.core.domain.repository.WorkoutRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
@@ -87,6 +88,7 @@ class SetInputViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: WorkoutRepository,
     private val restTimer: RestTimerController,
+    private val userRepository: UserRepository,
 ) : ViewModel() {
 
     private val logExerciseId: String = checkNotNull(savedStateHandle[ARG_LOG_EXERCISE_ID]) {
@@ -129,6 +131,15 @@ class SetInputViewModel @Inject constructor(
         restTimer.state
             .onEach { timer -> _uiState.update { it.copy(restTimer = timer) } }
             .launchIn(viewModelScope)
+
+        // 환경설정을 실제 동작에 반영한다 — 증감 단위와 기본 휴식시간 (FN-WRK-010 / FN-TOL-002)
+        viewModelScope.launch {
+            val setting = userRepository.findSetting()
+            restSeconds = setting.defaultRestSec
+            _uiState.update {
+                it.copy(weightStep = setting.weightStepKg, weightUnit = setting.weightUnit)
+            }
+        }
     }
 
     fun onAction(action: SetInputAction) {
