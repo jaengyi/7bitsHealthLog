@@ -1,5 +1,6 @@
 package com.sevenbits.myfit.core.domain.repository
 
+import com.sevenbits.myfit.core.domain.model.DailyWorkoutSummary
 import com.sevenbits.myfit.core.domain.model.SessionSummary
 import com.sevenbits.myfit.core.domain.model.WorkoutLog
 import com.sevenbits.myfit.core.domain.model.WorkoutSet
@@ -66,6 +67,14 @@ interface WorkoutRepository {
     // ── 집계 ──────────────────────────────────────────────
 
     suspend fun calcSummary(logId: String): SessionSummary
+
+    // ── 캘린더 (FN-CAL-001/002) ──────────────────────────
+
+    /** 기간 내 일자별 요약. 월간 캘린더 마커의 입력이다. */
+    fun observeDailySummaries(from: String, to: String): Flow<List<DailyWorkoutSummary>>
+
+    /** 스트릭 산출 입력 — 수행 완료 일자 (FN-CAL-008) */
+    suspend fun findCompletedDatesSince(from: String): List<String>
 
     /** 집계 캐시 갱신. 세트 변경과 같은 트랜잭션 흐름에서 호출한다. */
     suspend fun refreshSummaryCache(logId: String)

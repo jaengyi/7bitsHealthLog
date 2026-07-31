@@ -71,7 +71,7 @@ fun MyFitNavHost(
             onAddExercise = { navController.navigate(ExerciseRoute) },
             onOpenLog = { date -> navController.navigate(WorkoutRoute(date)) },
         )
-        calendarScreen()
+        calendarScreen(onOpenLog = { date -> navController.navigate(WorkoutRoute(date)) })
         settingsScreen()
     }
 }

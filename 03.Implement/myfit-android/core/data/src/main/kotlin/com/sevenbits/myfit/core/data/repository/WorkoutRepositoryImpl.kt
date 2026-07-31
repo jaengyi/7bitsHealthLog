@@ -1,6 +1,7 @@
 package com.sevenbits.myfit.core.data.repository
 
 import com.sevenbits.myfit.core.database.WorkoutLocalSource
+import com.sevenbits.myfit.core.domain.model.DailyWorkoutSummary
 import com.sevenbits.myfit.core.domain.model.SessionSummary
 import com.sevenbits.myfit.core.domain.model.WorkoutLog
 import com.sevenbits.myfit.core.domain.model.WorkoutSet
@@ -70,6 +71,12 @@ class WorkoutRepositoryImpl @Inject constructor(
     ) = local.toggleSetComplete(setId, isCompleted, timestampMillis)
 
     override suspend fun calcSummary(logId: String): SessionSummary = local.calcSummary(logId)
+
+    override fun observeDailySummaries(from: String, to: String): Flow<List<DailyWorkoutSummary>> =
+        local.observeDailySummaries(from, to)
+
+    override suspend fun findCompletedDatesSince(from: String): List<String> =
+        local.findCompletedDatesSince(from)
 
     override suspend fun refreshSummaryCache(logId: String) = local.refreshSummaryCache(logId)
 }

@@ -8,6 +8,7 @@ import com.sevenbits.myfit.core.database.entity.UserEntity
 import com.sevenbits.myfit.core.database.entity.WorkoutLogEntity
 import com.sevenbits.myfit.core.database.entity.WorkoutLogExerciseEntity
 import com.sevenbits.myfit.core.database.entity.WorkoutSetEntity
+import com.sevenbits.myfit.core.domain.model.DailyWorkoutSummary
 import com.sevenbits.myfit.core.domain.model.RecordType
 import com.sevenbits.myfit.core.domain.model.SessionSummary
 import com.sevenbits.myfit.core.domain.model.SetType
@@ -303,6 +304,21 @@ class WorkoutLocalSource @Inject internal constructor(
             completedSetCount = completed,
         )
     }
+
+    fun observeDailySummaries(from: String, to: String): Flow<List<DailyWorkoutSummary>> =
+        workoutDao.observeDailySummaries(ExerciseLocalSource.LOCAL_USER_ID, from, to)
+            .map { rows ->
+                rows.map {
+                    DailyWorkoutSummary(
+                        date = it.workoutDate,
+                        logCount = it.logCount,
+                        totalVolumeKg = it.totalVolumeKg ?: 0.0,
+                    )
+                }
+            }
+
+    suspend fun findCompletedDatesSince(from: String): List<String> =
+        workoutDao.findCompletedDatesSince(ExerciseLocalSource.LOCAL_USER_ID, from)
 
     suspend fun refreshSummaryCache(logId: String) {
         val log = workoutDao.findLogById(logId) ?: return
