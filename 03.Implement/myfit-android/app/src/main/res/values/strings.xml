@@ -6,4 +6,7 @@
     <string name="nav_record">기록</string>
     <string name="nav_routine">루틴</string>
     <string name="nav_more">더보기</string>
+    <string name="notification_channel_rest_timer">휴식 타이머</string>
+    <string name="rest_timer_running">휴식 중</string>
+    <string name="rest_timer_paused">휴식 일시정지</string>
 </resources>

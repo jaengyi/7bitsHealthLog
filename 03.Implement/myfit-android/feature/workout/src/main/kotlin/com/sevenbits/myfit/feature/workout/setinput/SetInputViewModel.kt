@@ -6,8 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.sevenbits.myfit.core.common.UnitConverter
 import com.sevenbits.myfit.core.common.WeightUnit
 import com.sevenbits.myfit.core.domain.model.RecordType
+import com.sevenbits.myfit.core.domain.model.RestTimerState
 import com.sevenbits.myfit.core.domain.model.SetType
 import com.sevenbits.myfit.core.domain.model.WorkoutSet
+import com.sevenbits.myfit.core.domain.repository.RestTimerController
 import com.sevenbits.myfit.core.domain.repository.WorkoutRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.FlowPreview
@@ -16,6 +18,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -34,6 +37,8 @@ data class SetInputUiState(
     val weightStep: Double = DEFAULT_WEIGHT_STEP,
     /** 프리필 근거 표시 — 값의 출처를 사용자가 알 수 있게 한다 (FN-WRK-014) */
     val prefillHint: String? = null,
+    /** 휴식 타이머 (FN-TOL-001) */
+    val restTimer: RestTimerState = RestTimerState(),
 ) {
     val selectedSet: WorkoutSet? get() = sets.firstOrNull { it.id == selectedSetId }
 
@@ -56,6 +61,11 @@ sealed interface SetInputAction {
     data object OnCopyLastSet : SetInputAction
     data class OnDeleteSet(val setId: String) : SetInputAction
     data object OnBack : SetInputAction
+
+    // 휴식 타이머 제어 (FN-TOL-003)
+    data object OnTimerTogglePause : SetInputAction
+    data object OnTimerSkip : SetInputAction
+    data class OnTimerAdjust(val deltaSec: Int) : SetInputAction
 }
 
 sealed interface SetInputEvent {
@@ -76,6 +86,7 @@ sealed interface SetInputEvent {
 class SetInputViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val repository: WorkoutRepository,
+    private val restTimer: RestTimerController,
 ) : ViewModel() {
 
     private val logExerciseId: String = checkNotNull(savedStateHandle[ARG_LOG_EXERCISE_ID]) {
@@ -113,6 +124,10 @@ class SetInputViewModel @Inject constructor(
             .filterNotNull()
             .debounce(WRITE_DEBOUNCE_MS)
             .onEach { repository.upsertSet(it) }
+            .launchIn(viewModelScope)
+
+        restTimer.state
+            .onEach { timer -> _uiState.update { it.copy(restTimer = timer) } }
             .launchIn(viewModelScope)
     }
 
@@ -157,8 +172,11 @@ class SetInputViewModel @Inject constructor(
                         nowCompleted,
                         System.currentTimeMillis(),
                     )
-                    // 세트를 완료하면 휴식 타이머가 자동 시작된다 (FN-WRK-020)
-                    if (nowCompleted) _events.send(SetInputEvent.StartRestTimer(restSeconds))
+                    // 세트를 완료하면 휴식 타이머가 자동 시작된다 (FN-WRK-020 -> FN-TOL-001)
+                    if (nowCompleted) {
+                        restTimer.start(restSeconds, sourceSetId = set.id)
+                        _events.send(SetInputEvent.StartRestTimer(restSeconds))
+                    }
                 }
             }
 
@@ -178,6 +196,13 @@ class SetInputViewModel @Inject constructor(
                     it.copy(selectedSetId = it.selectedSetId.takeIf { id -> id != action.setId })
                 }
             }
+
+            SetInputAction.OnTimerTogglePause ->
+                if (_uiState.value.restTimer.isPaused) restTimer.resume() else restTimer.pause()
+
+            SetInputAction.OnTimerSkip -> restTimer.skip()
+
+            is SetInputAction.OnTimerAdjust -> restTimer.adjust(action.deltaSec)
 
             SetInputAction.OnBack -> viewModelScope.launch {
                 flushPendingWrite()

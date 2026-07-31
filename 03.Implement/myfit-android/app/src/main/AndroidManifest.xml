@@ -5,13 +5,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- 휴식 타이머 (FN-TOL-001~005) — 후속 구현 시 서비스와 함께 활성화
+    <!-- 휴식 타이머 (FN-TOL-001~005) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_HEALTH" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    -->
 
     <application
         android:name=".MyFitApplication"
@@ -32,5 +31,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- FGS 타입 health: 운동 세션 추적 용도로 Android 14+ 정책에 부합 -->
+        <service
+            android:name=".service.RestTimerService"
+            android:exported="false"
+            android:foregroundServiceType="health" />
     </application>
 </manifest>

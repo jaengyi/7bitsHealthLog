@@ -28,6 +28,8 @@ import com.sevenbits.myfit.core.designsystem.theme.MyFitTheme
 import com.sevenbits.myfit.core.domain.model.RecordType
 import com.sevenbits.myfit.core.domain.model.SetType
 import com.sevenbits.myfit.core.domain.model.WorkoutSet
+import com.sevenbits.myfit.core.domain.calculator.RestTimerCalculator
+import com.sevenbits.myfit.core.ui.RestTimerPanel
 import com.sevenbits.myfit.core.ui.SetRow
 
 /**
@@ -70,6 +72,21 @@ fun SetInputScreen(
                 .fillMaxSize()
                 .padding(innerPadding),
         ) {
+            // 휴식 중에는 타이머가 세트 표 위에 올라온다 — 잔여 시간이 가장 중요한 정보다
+            if (uiState.restTimer.isRunning) {
+                RestTimerPanel(
+                    remainingDisplay = RestTimerCalculator.formatRemaining(
+                        uiState.restTimer.remainingMillis,
+                    ),
+                    progress = uiState.restTimer.progress,
+                    isPaused = uiState.restTimer.isPaused,
+                    onAdjust = { onAction(SetInputAction.OnTimerAdjust(it)) },
+                    onTogglePause = { onAction(SetInputAction.OnTimerTogglePause) },
+                    onSkip = { onAction(SetInputAction.OnTimerSkip) },
+                )
+                HorizontalDivider()
+            }
+
             SetTableHeader()
 
             LazyColumn(modifier = Modifier.weight(1f)) {

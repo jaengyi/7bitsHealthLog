@@ -39,6 +39,11 @@ data class SetInputRoute(val logExerciseId: String)
 fun NavGraphBuilder.workoutScreen(
     navController: NavController,
     onAddExercise: (logId: String) -> Unit = {},
+    /**
+     * 휴식 타이머 Foreground Service 기동을 :app 에 위임한다.
+     * feature 모듈은 서비스 클래스를 알지 못한다. (R-3)
+     */
+    onStartRestTimerService: () -> Unit = {},
 ) {
     composable<WorkoutRoute> { entry ->
         WorkoutLogRouteContent(
@@ -49,7 +54,10 @@ fun NavGraphBuilder.workoutScreen(
         )
     }
     composable<SetInputRoute> {
-        SetInputRouteContent(onBack = { navController.popBackStack() })
+        SetInputRouteContent(
+            onBack = { navController.popBackStack() },
+            onStartRestTimerService = onStartRestTimerService,
+        )
     }
 }
 
@@ -92,6 +100,7 @@ private fun WorkoutLogRouteContent(
 @Composable
 private fun SetInputRouteContent(
     onBack: () -> Unit,
+    onStartRestTimerService: () -> Unit,
     viewModel: SetInputViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -99,8 +108,9 @@ private fun SetInputRouteContent(
     ObserveEvents(viewModel.events) { event ->
         when (event) {
             SetInputEvent.NavigateBack -> onBack()
-            // 휴식 타이머 서비스는 후속 구현 (FN-TOL-001)
-            is SetInputEvent.StartRestTimer -> Unit
+            // 타이머 계산은 이미 시작됐고, 여기서는 백그라운드 유지를 위한
+            // Foreground Service 만 띄운다 (FN-TOL-004)
+            is SetInputEvent.StartRestTimer -> onStartRestTimerService()
         }
     }
 

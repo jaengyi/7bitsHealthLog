@@ -14,6 +14,8 @@ import androidx.navigation.compose.NavHost
 import com.sevenbits.myfit.R
 import com.sevenbits.myfit.feature.calendar.CalendarRoute
 import com.sevenbits.myfit.feature.calendar.calendarScreen
+import androidx.compose.ui.platform.LocalContext
+import com.sevenbits.myfit.service.RestTimerService
 import com.sevenbits.myfit.feature.exercise.ExerciseRoute
 import com.sevenbits.myfit.feature.exercise.exerciseScreen
 import com.sevenbits.myfit.feature.routine.RoutineRoute
@@ -51,6 +53,7 @@ fun MyFitNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
+    val context = LocalContext.current
     NavHost(
         navController = navController,
         startDestination = WorkoutRoute,
@@ -60,6 +63,7 @@ fun MyFitNavHost(
         workoutScreen(
             navController = navController,
             onAddExercise = { navController.navigate(ExerciseRoute) },
+            onStartRestTimerService = { RestTimerService.start(context) },
         )
         exerciseScreen(navController)
         routineScreen()
