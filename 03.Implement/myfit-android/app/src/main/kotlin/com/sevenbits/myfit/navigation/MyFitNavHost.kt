@@ -1,7 +1,6 @@
 package com.sevenbits.myfit.navigation
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CalendarMonth
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.ListAlt
@@ -27,18 +26,20 @@ import com.sevenbits.myfit.feature.workout.WorkoutRoute
 import com.sevenbits.myfit.feature.workout.workoutScreen
 
 /**
- * 하단 탭 5종. (06_화면설계서 §2)
+ * 하단 탭. (06_화면설계서 §2)
  *
- * 가장 빈번한 동선인 "오늘 기록"을 중앙 탭 1회 터치로 도달하게 배치한다.
+ * 설계상 5종이지만 Phase 1 에서는 **4종**이다. 홈(SCR-CMN-001)이 아직 없어
+ * 첫 탭이 오늘 일지를 직접 연다 — 중앙 "기록" 탭과 목적지가 같아진다.
+ * 같은 화면을 가리키는 탭 두 개를 두면 둘 다 선택 표시가 켜져 고장으로 보인다.
+ * 홈 화면을 구현할 때 중앙 탭을 복원한다.
  */
 enum class TopLevelDestination(
     val route: Any,
     val icon: ImageVector,
     val labelRes: Int,
 ) {
-    HOME(WorkoutRoute, Icons.Default.Home, R.string.nav_home),
+    HOME(WorkoutRoute, Icons.Default.Home, R.string.nav_record),
     CALENDAR(CalendarRoute, Icons.Default.CalendarMonth, R.string.nav_calendar),
-    RECORD(WorkoutRoute, Icons.Default.Add, R.string.nav_record),
     ROUTINE(RoutineRoute, Icons.Default.ListAlt, R.string.nav_routine),
     MORE(MoreRoute, Icons.Default.Menu, R.string.nav_more),
 }
