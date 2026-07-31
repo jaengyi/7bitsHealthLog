@@ -34,11 +34,19 @@ import com.sevenbits.myfit.feature.workout.workoutScreen
  * 홈 화면을 구현할 때 중앙 탭을 복원한다.
  */
 enum class TopLevelDestination(
+    /**
+     * 라우트 **인스턴스**. 타입이 `Any` 라 컴파일러가 걸러 주지 못한다.
+     *
+     * `WorkoutRoute` 는 `data object` 가 아니라 인자를 받는 `data class` 다.
+     * 괄호를 빼고 `WorkoutRoute` 라고 쓰면 컴패니언 객체가 넘어가고,
+     * 실행 시점에 "Serializer for class 'WorkoutRoute$Companion' is not found" 로
+     * 앱이 죽는다. 인자가 있는 라우트는 반드시 `WorkoutRoute()` 로 쓴다.
+     */
     val route: Any,
     val icon: ImageVector,
     val labelRes: Int,
 ) {
-    HOME(WorkoutRoute, Icons.Default.Home, R.string.nav_record),
+    HOME(WorkoutRoute(), Icons.Default.Home, R.string.nav_record),
     CALENDAR(CalendarRoute, Icons.Default.CalendarMonth, R.string.nav_calendar),
     ROUTINE(RoutineRoute, Icons.Default.ListAlt, R.string.nav_routine),
     MORE(MoreRoute, Icons.Default.Menu, R.string.nav_more),
@@ -58,7 +66,8 @@ fun MyFitNavHost(
     val context = LocalContext.current
     NavHost(
         navController = navController,
-        startDestination = WorkoutRoute,
+        // 괄호 필수 — 인자를 받는 라우트다. 위 route 프로퍼티 주석 참고.
+        startDestination = WorkoutRoute(),
         modifier = modifier,
     ) {
         // 일지에서 "종목 추가" -> 종목 선택 화면. 결과는 SavedStateHandle 로 돌아온다.
