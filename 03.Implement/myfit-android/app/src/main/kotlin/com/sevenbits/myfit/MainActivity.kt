@@ -9,6 +9,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -19,10 +22,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.sevenbits.myfit.core.designsystem.theme.MyFitTheme
+import com.sevenbits.myfit.core.domain.model.ThemeMode
+import com.sevenbits.myfit.feature.settings.OnboardingHost
 import com.sevenbits.myfit.navigation.MyFitNavHost
 import com.sevenbits.myfit.navigation.TopLevelDestination
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,9 +55,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         requestNotificationPermissionIfNeeded()
         setContent {
-            // 기본 다크 — 헬스장 조명 환경 고려 (REQ-CMN-005)
-            MyFitTheme(darkTheme = true) {
-                MyFitApp()
+            val viewModel: MainViewModel = hiltViewModel()
+            val themeMode by viewModel.themeMode.collectAsStateWithLifecycle()
+            val startState by viewModel.startState.collectAsStateWithLifecycle()
+
+            // 기본값은 다크 — 헬스장 조명 환경을 고려한 선택이다 (REQ-CMN-005)
+            MyFitTheme(darkTheme = themeMode.isDark()) {
+                when (startState) {
+                    // DB 판정 전에 화면을 그리면 홈이 잠깐 보였다가 온보딩으로 튄다
+                    StartState.Loading -> Box(Modifier.fillMaxSize())
+                    StartState.Onboarding ->
+                        OnboardingHost(onFinished = viewModel::onOnboardingFinished)
+                    StartState.Main -> MyFitApp()
+                }
             }
         }
     }
@@ -65,6 +82,14 @@ private fun ComponentActivity.requestNotificationPermissionIfNeeded() {
     if (!granted) {
         (this as MainActivity).launchNotificationPermission()
     }
+}
+
+/** SYSTEM 은 기기 설정을 따른다 */
+@Composable
+private fun ThemeMode.isDark(): Boolean = when (this) {
+    ThemeMode.DARK -> true
+    ThemeMode.LIGHT -> false
+    ThemeMode.SYSTEM -> isSystemInDarkTheme()
 }
 
 @Composable

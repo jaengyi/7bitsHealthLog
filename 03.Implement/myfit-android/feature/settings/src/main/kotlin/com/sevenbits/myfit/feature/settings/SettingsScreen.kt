@@ -28,6 +28,7 @@ import com.sevenbits.myfit.core.designsystem.theme.Dimens
 import com.sevenbits.myfit.core.designsystem.theme.MyFitTheme
 import com.sevenbits.myfit.core.domain.model.OneRmFormula
 import com.sevenbits.myfit.core.domain.model.ThemeMode
+import com.sevenbits.myfit.feature.settings.component.label
 
 /**
  * SCR-CMN-005 환경설정 (stateless). (06_화면설계서 §3.5)
@@ -76,7 +77,7 @@ fun SettingsScreen(
                 label = "중량",
                 options = WeightUnit.entries,
                 selected = uiState.setting.weightUnit,
-                labelOf = { if (it == WeightUnit.KG) "kg" else "lb" },
+                labelOf = { it.label() },
                 onSelect = { onAction(SettingsAction.OnWeightUnitChange(it)) },
             )
             ChoiceRow(
@@ -190,18 +191,6 @@ private fun SwitchRow(label: String, checked: Boolean, onChange: (Boolean) -> Un
         Text(label, style = MaterialTheme.typography.bodyMedium)
         Switch(checked = checked, onCheckedChange = onChange)
     }
-}
-
-private fun ThemeMode.label(): String = when (this) {
-    ThemeMode.SYSTEM -> "시스템"
-    ThemeMode.LIGHT -> "라이트"
-    ThemeMode.DARK -> "다크"
-}
-
-private fun OneRmFormula.label(): String = when (this) {
-    OneRmFormula.EPLEY -> "Epley"
-    OneRmFormula.BRZYCKI -> "Brzycki"
-    OneRmFormula.LOMBARDI -> "Lombardi"
 }
 
 private val WEIGHT_STEPS = listOf(1.0, 2.5, 5.0)

@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.sevenbits.myfit.BuildConfig
 import com.sevenbits.myfit.R
 import com.sevenbits.myfit.feature.calendar.CalendarRoute
 import com.sevenbits.myfit.feature.calendar.calendarScreen
@@ -20,7 +21,7 @@ import com.sevenbits.myfit.feature.exercise.ExerciseRoute
 import com.sevenbits.myfit.feature.exercise.exerciseScreen
 import com.sevenbits.myfit.feature.routine.RoutineRoute
 import com.sevenbits.myfit.feature.routine.routineScreen
-import com.sevenbits.myfit.feature.settings.SettingsRoute
+import com.sevenbits.myfit.feature.settings.MoreRoute
 import com.sevenbits.myfit.feature.settings.settingsScreen
 import com.sevenbits.myfit.feature.workout.WorkoutRoute
 import com.sevenbits.myfit.feature.workout.workoutScreen
@@ -39,7 +40,7 @@ enum class TopLevelDestination(
     CALENDAR(CalendarRoute, Icons.Default.CalendarMonth, R.string.nav_calendar),
     RECORD(WorkoutRoute, Icons.Default.Add, R.string.nav_record),
     ROUTINE(RoutineRoute, Icons.Default.ListAlt, R.string.nav_routine),
-    MORE(SettingsRoute, Icons.Default.Menu, R.string.nav_more),
+    MORE(MoreRoute, Icons.Default.Menu, R.string.nav_more),
 }
 
 /**
@@ -72,6 +73,6 @@ fun MyFitNavHost(
             onOpenLog = { date -> navController.navigate(WorkoutRoute(date)) },
         )
         calendarScreen(onOpenLog = { date -> navController.navigate(WorkoutRoute(date)) })
-        settingsScreen(navController)
+        settingsScreen(navController = navController, appVersion = BuildConfig.VERSION_NAME)
     }
 }
