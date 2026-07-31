@@ -66,6 +66,11 @@ internal interface WorkoutDao {
     @Query("SELECT * FROM workout_log WHERE id = :logId")
     suspend fun findLogById(logId: String): WorkoutLogEntity?
 
+    /** 일지를 루틴으로 저장할 때처럼 1회성 조회가 필요한 경우 (FN-RTN-008) */
+    @Transaction
+    @Query("SELECT * FROM workout_log WHERE id = :logId")
+    suspend fun findLogDetailOnce(logId: String): WorkoutLogWithDetail?
+
     /** 진행 중 세션 복원 (FN-WRK-023) */
     @Query("SELECT * FROM workout_log WHERE user_id = :userId AND status = 'IN_PROGRESS' LIMIT 1")
     suspend fun findInProgressLog(userId: String): WorkoutLogEntity?

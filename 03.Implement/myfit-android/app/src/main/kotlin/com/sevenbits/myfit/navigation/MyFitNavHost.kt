@@ -66,7 +66,11 @@ fun MyFitNavHost(
             onStartRestTimerService = { RestTimerService.start(context) },
         )
         exerciseScreen(navController)
-        routineScreen()
+        routineScreen(
+            navController = navController,
+            onAddExercise = { navController.navigate(ExerciseRoute) },
+            onOpenLog = { date -> navController.navigate(WorkoutRoute(date)) },
+        )
         calendarScreen()
         settingsScreen()
     }

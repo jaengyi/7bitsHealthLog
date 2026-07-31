@@ -35,6 +35,10 @@ internal interface RoutineDao {
     @Upsert
     suspend fun upsertRoutineExercises(items: List<RoutineExerciseEntity>)
 
+    /** 루틴 저장 시 구성을 통째로 교체한다 — 부분 갱신은 순번 정합을 깨기 쉽다 */
+    @Query("DELETE FROM routine_exercise WHERE routine_id = :routineId")
+    suspend fun deleteRoutineExercises(routineId: String)
+
     /** 최근 수행일·사용빈도순 정렬 (FN-RTN-002) */
     @Query(
         """
