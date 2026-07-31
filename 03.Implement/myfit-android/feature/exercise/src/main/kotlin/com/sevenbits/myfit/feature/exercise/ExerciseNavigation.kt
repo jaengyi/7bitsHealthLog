@@ -11,6 +11,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.sevenbits.myfit.core.common.NavResult
 import com.sevenbits.myfit.feature.exercise.detail.ExerciseDetailEvent
 import com.sevenbits.myfit.feature.exercise.detail.ExerciseDetailScreen
 import com.sevenbits.myfit.feature.exercise.detail.ExerciseDetailViewModel
@@ -22,6 +23,7 @@ import com.sevenbits.myfit.feature.exercise.note.ExerciseNoteAction
 import com.sevenbits.myfit.feature.exercise.note.ExerciseNoteScreen
 import com.sevenbits.myfit.feature.exercise.note.ExerciseNoteViewModel
 import com.sevenbits.myfit.feature.exercise.picker.ExercisePickerAction
+import com.sevenbits.myfit.feature.exercise.picker.ExercisePickerEvent
 import com.sevenbits.myfit.feature.exercise.picker.ExercisePickerScreen
 import com.sevenbits.myfit.feature.exercise.picker.ExercisePickerViewModel
 import kotlinx.coroutines.flow.Flow
@@ -53,6 +55,14 @@ fun NavGraphBuilder.exerciseScreen(navController: NavController) {
         ExercisePickerRoute(
             onOpenDetail = { navController.navigate(ExerciseDetailRoute(it)) },
             onCreateExercise = { navController.navigate(ExerciseEditorRoute()) },
+            onSelectionConfirmed = { ids ->
+                // 호출한 화면(운동일지)의 SavedStateHandle 에 결과를 남기고 되돌아간다.
+                // feature 간 직접 참조 없이 결과를 전달하는 경로다. (R-3)
+                navController.previousBackStackEntry
+                    ?.savedStateHandle
+                    ?.set(NavResult.SELECTED_EXERCISE_IDS, NavResult.encodeIds(ids))
+                navController.popBackStack()
+            },
         )
     }
     composable<ExerciseDetailRoute> {
@@ -78,9 +88,18 @@ fun NavGraphBuilder.exerciseScreen(navController: NavController) {
 private fun ExercisePickerRoute(
     onOpenDetail: (String) -> Unit,
     onCreateExercise: () -> Unit,
+    onSelectionConfirmed: (List<String>) -> Unit,
     viewModel: ExercisePickerViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    ObserveEvents(viewModel.events) { event ->
+        when (event) {
+            is ExercisePickerEvent.SelectionConfirmed -> onSelectionConfirmed(event.exerciseIds)
+            is ExercisePickerEvent.OpenExerciseDetail -> onOpenDetail(event.exerciseId)
+            is ExercisePickerEvent.ShowMessage -> Unit
+        }
+    }
     ExercisePickerScreen(
         uiState = uiState,
         onAction = { action ->

@@ -7,10 +7,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.sevenbits.myfit.core.common.NavResult
 import com.sevenbits.myfit.feature.workout.log.WorkoutLogEvent
 import com.sevenbits.myfit.feature.workout.log.WorkoutLogScreen
 import com.sevenbits.myfit.feature.workout.log.WorkoutLogViewModel
@@ -38,8 +40,9 @@ fun NavGraphBuilder.workoutScreen(
     navController: NavController,
     onAddExercise: (logId: String) -> Unit = {},
 ) {
-    composable<WorkoutRoute> {
+    composable<WorkoutRoute> { entry ->
         WorkoutLogRouteContent(
+            savedStateHandle = entry.savedStateHandle,
             onOpenSetInput = { navController.navigate(SetInputRoute(it)) },
             onAddExercise = onAddExercise,
             onBack = { navController.popBackStack() },
@@ -52,12 +55,26 @@ fun NavGraphBuilder.workoutScreen(
 
 @Composable
 private fun WorkoutLogRouteContent(
+    savedStateHandle: SavedStateHandle,
     onOpenSetInput: (String) -> Unit,
     onAddExercise: (String) -> Unit,
     onBack: () -> Unit,
     viewModel: WorkoutLogViewModel = hiltViewModel(),
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
+    // 종목 선택 화면이 남긴 결과를 수신한다.
+    // 소비 후 즉시 비워야 화면 복귀 때마다 같은 종목이 다시 추가되지 않는다.
+    val selectedIds by savedStateHandle
+        .getStateFlow(NavResult.SELECTED_EXERCISE_IDS, "")
+        .collectAsStateWithLifecycle()
+
+    LaunchedEffect(selectedIds) {
+        if (selectedIds.isNotBlank()) {
+            viewModel.onExercisesSelected(NavResult.decodeIds(selectedIds))
+            savedStateHandle[NavResult.SELECTED_EXERCISE_IDS] = ""
+        }
+    }
 
     ObserveEvents(viewModel.events) { event ->
         when (event) {

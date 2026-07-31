@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import com.sevenbits.myfit.R
 import com.sevenbits.myfit.feature.calendar.CalendarRoute
 import com.sevenbits.myfit.feature.calendar.calendarScreen
+import com.sevenbits.myfit.feature.exercise.ExerciseRoute
 import com.sevenbits.myfit.feature.exercise.exerciseScreen
 import com.sevenbits.myfit.feature.routine.RoutineRoute
 import com.sevenbits.myfit.feature.routine.routineScreen
@@ -55,7 +56,11 @@ fun MyFitNavHost(
         startDestination = WorkoutRoute,
         modifier = modifier,
     ) {
-        workoutScreen(navController)
+        // 일지에서 "종목 추가" -> 종목 선택 화면. 결과는 SavedStateHandle 로 돌아온다.
+        workoutScreen(
+            navController = navController,
+            onAddExercise = { navController.navigate(ExerciseRoute) },
+        )
         exerciseScreen(navController)
         routineScreen()
         calendarScreen()
