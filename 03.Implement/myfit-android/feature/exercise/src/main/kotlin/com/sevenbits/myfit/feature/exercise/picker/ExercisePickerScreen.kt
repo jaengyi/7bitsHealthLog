@@ -28,6 +28,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,6 +52,11 @@ fun ExercisePickerScreen(
     onAction: (ExercisePickerAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // 부위 코드 -> 한국어 이름. 목록 전체가 같은 표를 쓰므로 한 번만 만든다.
+    val bodyPartNames = remember(uiState.availableBodyParts) {
+        uiState.availableBodyParts.associate { it.code to it.name }
+    }
+
     Column(modifier = modifier.fillMaxSize()) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -92,12 +98,12 @@ fun ExercisePickerScreen(
             LazyColumn(modifier = Modifier.weight(1f)) {
                 if (!uiState.isFiltering) {
                     // 종목 추가의 대부분은 최근·즐겨찾기에서 끝난다 (FN-EXR-011/010)
-                    section("최근 사용", uiState.recent, uiState, onAction)
-                    section("즐겨찾기", uiState.favorites, uiState, onAction)
-                    section("전체", uiState.results, uiState, onAction)
+                    section("최근 사용", uiState.recent, uiState, bodyPartNames, onAction)
+                    section("즐겨찾기", uiState.favorites, uiState, bodyPartNames, onAction)
+                    section("전체", uiState.results, uiState, bodyPartNames, onAction)
                 } else {
                     items(uiState.results, key = { it.id }) { exercise ->
-                        ExerciseRow(exercise, exercise.id in uiState.selectedIds, onAction)
+                        ExerciseRow(exercise, exercise.id in uiState.selectedIds, bodyPartNames, onAction)
                     }
                 }
             }
@@ -138,6 +144,7 @@ private fun LazyListScope.section(
     title: String,
     exercises: List<Exercise>,
     uiState: ExercisePickerUiState,
+    bodyPartNames: Map<String, String>,
     onAction: (ExercisePickerAction) -> Unit,
 ) {
     if (exercises.isEmpty()) return
@@ -153,7 +160,7 @@ private fun LazyListScope.section(
         )
     }
     items(exercises, key = { "$title-${it.id}" }) { exercise ->
-        ExerciseRow(exercise, exercise.id in uiState.selectedIds, onAction)
+        ExerciseRow(exercise, exercise.id in uiState.selectedIds, bodyPartNames, onAction)
     }
 }
 
@@ -161,6 +168,7 @@ private fun LazyListScope.section(
 private fun ExerciseRow(
     exercise: Exercise,
     isSelected: Boolean,
+    bodyPartNames: Map<String, String>,
     onAction: (ExercisePickerAction) -> Unit,
 ) {
     Row(
@@ -179,7 +187,7 @@ private fun ExerciseRow(
         Column(modifier = Modifier.weight(1f)) {
             Text(exercise.name, style = MaterialTheme.typography.bodyLarge)
             Text(
-                text = exercise.equipmentLabel(),
+                text = exercise.subtitle(bodyPartNames),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -225,8 +233,15 @@ private fun FilterChipRow(
     }
 }
 
-private fun Exercise.equipmentLabel(): String {
-    val parts = primaryBodyParts.joinToString("·")
+/**
+ * "바벨 · 가슴" 형태의 부제.
+ *
+ * 부위는 도메인에 **코드**(`CHEST`)로 담겨 있다. 코드는 안정된 식별자라 그대로 두고,
+ * 사람이 읽을 이름은 표시 시점에 붙인다. 이름을 못 찾으면 코드를 그대로 쓴다 —
+ * 사용자 정의 부위가 생겨도 빈칸으로 사라지지 않게 한다.
+ */
+private fun Exercise.subtitle(bodyPartNames: Map<String, String>): String {
+    val parts = primaryBodyParts.joinToString("·") { bodyPartNames[it] ?: it }
     return listOfNotNull(equipment.label(), parts.takeIf { it.isNotBlank() }).joinToString(" · ")
 }
 
