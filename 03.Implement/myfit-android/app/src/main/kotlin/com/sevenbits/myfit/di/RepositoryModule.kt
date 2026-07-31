@@ -1,9 +1,11 @@
 package com.sevenbits.myfit.di
 
+import com.sevenbits.myfit.core.data.repository.AppInitializerImpl
 import com.sevenbits.myfit.core.data.repository.ExerciseRepositoryImpl
 import com.sevenbits.myfit.core.data.repository.RoutineRepositoryImpl
 import com.sevenbits.myfit.core.data.repository.UserRepositoryImpl
 import com.sevenbits.myfit.core.data.repository.WorkoutRepositoryImpl
+import com.sevenbits.myfit.core.domain.repository.AppInitializer
 import com.sevenbits.myfit.core.domain.repository.ExerciseRepository
 import com.sevenbits.myfit.core.domain.repository.RestTimerController
 import com.sevenbits.myfit.core.domain.repository.RoutineRepository
@@ -45,4 +47,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindUserRepository(impl: UserRepositoryImpl): UserRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindAppInitializer(impl: AppInitializerImpl): AppInitializer
 }

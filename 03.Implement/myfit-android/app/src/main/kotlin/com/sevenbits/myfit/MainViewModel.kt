@@ -3,6 +3,7 @@ package com.sevenbits.myfit
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sevenbits.myfit.core.domain.model.ThemeMode
+import com.sevenbits.myfit.core.domain.repository.AppInitializer
 import com.sevenbits.myfit.core.domain.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,6 +32,7 @@ sealed interface StartState {
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val repository: UserRepository,
+    private val appInitializer: AppInitializer,
 ) : ViewModel() {
 
     private val _startState = MutableStateFlow<StartState>(StartState.Loading)
@@ -47,6 +49,10 @@ class MainViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
+            // 시드 적재를 화면보다 먼저 끝낸다. 어떤 화면도 빈 DB 를 읽어서는 안 된다.
+            // 이미 적재되어 있으면 즉시 반환한다(멱등).
+            appInitializer.initialize()
+
             // findSetting() 은 레코드가 없으면 만들어 준다 — 최초 실행도 여기서 처리된다
             val setting = repository.findSetting()
             _startState.value =
