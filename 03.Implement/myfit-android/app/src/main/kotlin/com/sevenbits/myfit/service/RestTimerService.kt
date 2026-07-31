@@ -23,6 +23,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -68,7 +69,24 @@ class RestTimerService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val state = engine.state.value
-        startForeground(NOTIFICATION_ID, buildNotification(state.remainingMillis, state.isPaused))
+
+        // 알림을 못 띄우는 것과 앱이 죽는 것은 전혀 다른 문제다.
+        // 잔여 시간은 RestTimerEngine 이 elapsedRealtime 델타로 따로 계산하므로,
+        // 여기서 실패해도 화면 안의 타이머는 정확하게 계속 간다. 운동 기록을
+        // 날리는 것보다 알림을 포기하는 편이 낫다.
+        //
+        // 실제로 겪은 사고: FGS 타입을 health 로 두었더니 Android 14+ 가 센서 권한을
+        // 요구하며 SecurityException 을 던졌고, 세트를 완료할 때마다 앱이 죽었다.
+        runCatching {
+            startForeground(
+                NOTIFICATION_ID,
+                buildNotification(state.remainingMillis, state.isPaused),
+            )
+        }.onFailure { error ->
+            Timber.w(error, "휴식 타이머 알림을 띄우지 못했습니다. 타이머는 계속 동작합니다.")
+            stopSelf()
+        }
+
         // 시스템이 서비스를 종료해도 재생성하지 않는다 — 타이머는 사용자가 다시 시작한다
         return START_NOT_STICKY
     }

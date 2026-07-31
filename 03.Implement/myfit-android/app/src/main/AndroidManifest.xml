@@ -8,7 +8,14 @@
     <!-- 휴식 타이머 (FN-TOL-001~005) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_HEALTH" />
+    <!--
+      FGS 타입은 specialUse 다. health 를 쓰면 Android 14+ 가 ACTIVITY_RECOGNITION /
+      BODY_SENSORS / HIGH_SAMPLING_RATE_SENSORS 중 하나를 추가로 요구해
+      startForeground() 가 SecurityException 으로 앱을 죽인다. 휴식 타이머는 센서를
+      전혀 쓰지 않으므로 그 권한들을 받을 명분이 없다.
+      shortService 는 3분 제한이 있어 +15초 조정과 충돌한다.
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -32,10 +39,15 @@
             </intent-filter>
         </activity>
 
-        <!-- FGS 타입 health: 운동 세션 추적 용도로 Android 14+ 정책에 부합 -->
+        <!-- 세트 간 휴식 타이머. 화면을 벗어나도 잔여 시간을 알림에 표시한다 (FN-TOL-004) -->
         <service
             android:name=".service.RestTimerService"
             android:exported="false"
-            android:foregroundServiceType="health" />
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Rest timer between workout sets. Shows remaining time in a
+                    notification while the screen is off or the app is backgrounded." />
+        </service>
     </application>
 </manifest>
